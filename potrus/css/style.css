@@ -1,0 +1,42 @@
+﻿body{
+	margin: 0;
+	padding: 0;
+	font: 1em/1.6em sans-serif;
+}
+.mid{
+	width: 800px;
+	margin: 0 auto;
+	text-align: justify;
+}
+.header{
+	background: #59b2d3;
+	opacity: 0;
+}
+.logotype{
+	width: 48px;
+	height: auto;
+	margin-right: 10px;
+	vertical-align: middle;
+}
+.wrapper{
+	height: auto;
+	width: 100%;
+	background: gray;
+}
+.wrapper p{
+	margin: 20 10 0 10;
+}
+#firstp{
+	margin-top: 40;
+}
+.headhesive{
+	background: #59b2d3;
+	position: fixed;
+	width: 100%;
+	padding: 20px 0;
+	transition: 0.5s;
+	opacity: 1;
+}
+.headhesive--stick{
+	padding: 10px 0;
+}
