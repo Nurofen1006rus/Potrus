@@ -14,7 +14,7 @@ body{
 	text-align: justify;
 }
 .header{
-	background: #59b2d3;
+	background: #ffffff;
 	opacity: 0;
 	margin-bottom: 40px;
 }
@@ -28,7 +28,7 @@ body{
 	width: 1000px;
     margin: 0 auto;
     min-height: 100%;
-    height: auto !important;
+    height: 2300px !important;
     height: 100%;
 	background: gray;
 }
@@ -36,12 +36,13 @@ body{
 	margin: 20 10 0 10;
 }
 .headhesive{
-	background: #59b2d3;
+	background: #ffffff;
 	position: fixed;
 	width: 100%;
 	padding: 20px 0;
 	transition: 0.5s;
 	opacity: 1;
+	z-index: 999;
 }
 .headhesive--stick{
 	padding: 10px 0;
@@ -59,7 +60,7 @@ footer{
 	color: #f3f5f2;
 	padding: 10px;
 	font-size: 18px;
-	border-radius: 5px;
+	border-radius: 25px;
 	position: relative;
 	box-sizing: border-box;
 	transition: all 700ms;
@@ -76,4 +77,131 @@ footer{
 	width: auto;
 	align: center;
 	margin: 10px 0 0 0;
+}
+/* BigButtons */
+.knopki{
+	height: auto !important;
+	width: 100%;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+.bigbutton{
+	margin: 20px 32px 10px 10px;
+	width: 25%;
+	height: 100px;
+	background: #f9fcfa;
+	box-shadow: 5px inset #ffffff;
+	display: inline-block;
+	text-align: center;
+}
+.bigbutton img{
+	float: left;
+	margin: 10px;
+}
+.bigbutton span{
+	text-align: center;
+	text
+}
+/* Sidebars */
+.sale{
+	height: auto !important;
+	width: 100%;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+.sale button{
+	width: 200px;
+	height: 50px;
+	font-size: 20px;
+	margin: 10px 10px 10px 10px;
+}
+#BUT1{
+	margin: 0px 0px 0px 60px;
+}
+#BUT2{
+	margin: 0px 0px 0px 10px;
+}
+.leftbar{
+	float: left;
+	width: 50%;
+	height: 300px;
+}
+.leftbar p{
+	font-size: 16px;
+	margin: 40px 0px 0px 70px;
+	text-align: left;
+	line-height: 2;
+}
+.leftbar span{
+	font-size: 28px;
+	text-align: left;
+	line-height: 1.5;
+}
+.rightbar{
+	float: right;
+	width: 50%;
+	height: 400px;
+}
+.rightbar img{
+	height: 250px;
+	width: 200px;
+}
+/* Poloska */
+.poloska{
+	height: 180px !important;
+	width: 100%;
+	text-align: center;
+	margin: 30px 0 0 0;
+	padding: 0;
+	background: #4286f4;
+	position: relative;
+	display: inline-block;
+}
+.kartinka{
+	margin: 20px 0px 0px 0px;
+	width: 20%;
+	height: 200px;
+	display: inline-table;
+	position: relative;
+}
+.kartinka p{
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+}
+/* Info */
+.info{
+	width: 100%;
+	height: auto;
+	text-align: center;
+	margin: 20px 0 0 0;
+}
+.infocaption{
+	font-size: 35px;
+}
+.text span{
+	text-align: center;
+}
+.text{
+	text-align: left;
+	margin: 10px 0 0 0;
+}
+.caption1{
+	font-weight: bold;
+}
+/* Map */
+.map{
+	margin: 50px 0 0 0;
+}
+#YMapsID{
+	width: 100%;
+	height: 500px;
+	z-index: 1000;
+}
+#rectangle {
+	width: 300px;
+	height: 100px;
+	background: red;
+	z-index: 998;
 }
