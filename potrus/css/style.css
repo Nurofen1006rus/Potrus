@@ -1,13 +1,37 @@
-﻿html{
-	height: 100%;
+/* INDEX.HTML*/
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v15/0eC6fl06luXEYWpBSJvXCBJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
 }
-body{
-	margin: 0;
-	padding: 0;
-	font: 1em/1.6em sans-serif;
+*{
+	font-family: 'Roboto', Roboto, sans-serif;
+}
+html{
 	width: 100%;
 	height: 100%;
 }
+body{
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+/* MainContainer */
+.wrapper{
+	width: 100%;
+    margin: 0 auto;
+    min-height: 100%;
+    height: 2300px !important;
+    height: 100%;
+	background: #ffffff;
+	position: relative;
+}
+.wrapper p{
+	margin: 20 10 0 10;
+}
+/* Header */
 .mid{
 	width: 800px;
 	margin: 0 0 0 15%;
@@ -17,23 +41,13 @@ body{
 	background: #ffffff;
 	opacity: 0;
 	margin-bottom: 40px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 .logotype{
 	width: 48px;
 	height: auto;
 	margin-right: 10px;
 	vertical-align: middle;
-}
-.wrapper{
-	width: 1000px;
-    margin: 0 auto;
-    min-height: 100%;
-    height: 2300px !important;
-    height: 100%;
-	background: gray;
-}
-.wrapper p{
-	margin: 20 10 0 10;
 }
 .headhesive{
 	background: #ffffff;
@@ -46,13 +60,6 @@ body{
 }
 .headhesive--stick{
 	padding: 10px 0;
-}
-footer{
-	width: 1000px;
-    margin: -200px auto 0;
-    height: 200px;
-    background: black;
-    position: relative;
 }
 .head_button{
 	border: none;
@@ -82,55 +89,60 @@ footer{
 .knopki{
 	height: auto !important;
 	width: 100%;
+	margin: 0 auto;
 	text-align: center;
-	margin: 0;
-	padding: 0;
+	background: #f6f6f6;
+}
+.fonknopki{
+	margin: 0 auto;
+	width: 1000px;
+	background: #f6f6f6;
 }
 .bigbutton{
-	margin: 20px 32px 10px 10px;
-	width: 25%;
-	height: 100px;
+	margin: 20px 10px 10px 10px;
+	width: 27%;
+	height: 110px;
 	background: #f9fcfa;
 	box-shadow: 5px inset #ffffff;
 	display: inline-block;
-	text-align: center;
+	text-align: all;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 .bigbutton img{
 	float: left;
-	margin: 10px;
+	margin: 15px;
 }
 .bigbutton span{
 	text-align: center;
-	text
 }
 /* Sidebars */
 .sale{
 	height: auto !important;
-	width: 100%;
+	width: 1000px;
+	margin: 0 auto;
 	text-align: center;
-	margin: 0;
-	padding: 0;
 }
 .sale button{
-	width: 200px;
-	height: 50px;
+	width: 245px;
+	height: 60px;
 	font-size: 20px;
 	margin: 10px 10px 10px 10px;
 }
 #BUT1{
-	margin: 0px 0px 0px 60px;
+	margin: 0px 0px 0px 90px;
 }
 #BUT2{
-	margin: 0px 0px 0px 10px;
+	margin: 0px 0px 0px 30px;
 }
 .leftbar{
 	float: left;
 	width: 50%;
-	height: 300px;
+	height: auto;
+	margin: 0 0 50px 50px;
 }
 .leftbar p{
-	font-size: 16px;
-	margin: 40px 0px 0px 70px;
+	font-size: 18px;
+	margin: 40px 0px 0px 0px;
 	text-align: left;
 	line-height: 2;
 }
@@ -141,21 +153,40 @@ footer{
 }
 .rightbar{
 	float: right;
-	width: 50%;
+	width: 45%;
 	height: 400px;
 }
 .rightbar img{
-	height: 250px;
-	width: 200px;
+	height: none;
+	width: 250px;
+	display: table-cell;
+	margin: 0 auto;
+}
+.button_sale{
+	color: #3a7999;
+	border: 2px solid #3a7999;
+	border-radius: 35px;
+	text-align: center;
+	outline: none;
+	background: transparent;
+	transition: all 500ms;
+	bottom: 0;
+	position: absolute;
+}
+.button_sale:hover,
+.button_sale:active{
+	background-color: transparent;
+	color: #ffffff;
+	background: #3a7999;
 }
 /* Poloska */
 .poloska{
 	height: 180px !important;
 	width: 100%;
 	text-align: center;
-	margin: 30px 0 0 0;
+	margin: 30px 0 40px 0;
 	padding: 0;
-	background: #4286f4;
+	background: #099FED;
 	position: relative;
 	display: inline-block;
 }
@@ -168,14 +199,13 @@ footer{
 }
 .kartinka p{
 	margin: 0;
-	font-family: 'Roboto', sans-serif;
 }
 /* Info */
 .info{
-	width: 100%;
+	width: 1000px;
 	height: auto;
 	text-align: center;
-	margin: 20px 0 0 0;
+	margin: 0 auto;
 }
 .infocaption{
 	font-size: 35px;
@@ -184,24 +214,131 @@ footer{
 	text-align: center;
 }
 .text{
+	font-size: 18px;
 	text-align: left;
 	margin: 10px 0 0 0;
+	line-height: 1.3;
 }
 .caption1{
 	font-weight: bold;
+	line-height: 2.3;
 }
 /* Map */
 .map{
 	margin: 50px 0 0 0;
+	position: absolute;
+	width: 100%;
 }
 #YMapsID{
 	width: 100%;
 	height: 500px;
 	z-index: 1000;
 }
-#rectangle {
+.rectangle{
 	width: 300px;
+	height: 50px;
+	background: #b0b7c1;
+	margin: 0 auto;
+	text-align: center;
+}
+.rectangle p{
+	margin: 0;
+	padding: 0;
+	z-index: 3;
+	color: #fff;
+	width: 100%;
+	text-align: center;
+}
+.adress::before{
+	left: 0;
+	transform: skew(0 deg, 10deg);
+	-webkit-transform: skew(0 deg, 10deg);
+	background: #b0b7c1;
+}
+.adress::after{
+	right: 0;
+	transform: skew(10 deg, 0deg);
+	-webkit-transform: skew(10 deg, 0deg);
+	background: #b0b7c1;
+}
+/* Footer */
+footer{
+	width: 100%;
+    margin: -200px auto 0;
+    height: 200px;
+    background: black;
+    position: relative;
+}
+/*===================================*/
+/* Contacts.HTML */
+.contacts{
+	width: 100%;
+	height: 2000px !important;
+    height: 100%;
+    text-align: center;
+}
+.leftbar_2{
+	margin: 0 0 0 15%;
+	float: left;
+}
+.rightbar_2{
+	margin: 0 15% 0 0;
+	float: right;
+}
+.rightbar_2 span{
+	font-size: 18px;
+}
+#caption{
+	font-size: 28px;
+}
+.textbox{
+	width: 130px;
+	height: 23px;
+}
+/*===================================*/
+/* AboutCompany.HTML */
+.picturetext{
+	width: 1000px;
+	height: auto;
+	margin: 0 auto;
+}
+.picturetext h1{
+	margin: 70px 0 10px 0;
+}
+.picturetext h2{
+	margin: 10px 0 10px 0;
+}
+.smalltext{
+	text-align: center;
+	margin: 10px 10px 10px 10px;
 	height: 100px;
-	background: red;
-	z-index: 998;
+}
+.smalltext img{
+	float: left;
+	margin: 12px auto;
+	width: auto;
+}
+.smalltext p{
+	text-align: left;
+	float: right;
+	width: 90%;
+}
+.smalltext span{
+	margin: 0;
+	padding: 0;
+}
+.bigtext{
+	text-align: center;
+	display: inline-block;
+}
+.bigtext img{
+	float: left;
+	width: 33%;
+}
+#paragraph_1{
+	width: 33%;
+}
+#paragraph_2{
+	width: 33%;
+	float: right;
 }
