@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+	<head>
+		<title>Potrus</title>
+		<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script type="text/javascript" src="js/fullajax.min.js"></script>
+		<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+   		<script>
+   			//ajax
+			function hajax (url) 
+			{
+	       		hax({url: url, id:'wrapper', nohistory:1})
+	    	}
+			window.onload=hajax('divs.html');
+		</script>
+	</head>
+<body>
+	<!-- header -->
+	<div class="header">
+
+		<div class="mid">
+			<img src="img/Image_01.png" alt="logo" class="logotype"  onclick="hajax('divs.html');">
+			<span>Potrus</span>
+			<button class="head_button" id="head_but_1" onclick="hajax('aboutcompany.html');">О компании</button>
+			<button class="head_button" id="head_but_2"  onclick="hajax('contacts.html');">Наши контакты</button>
+			<button class="head_button" id="head_but_3">Как сделать заказ?</button>
+			<button class="head_button" id="head_but_4" onclick="hajax('product.html');">Продукция</button>
+		</div>
+	</div>
+
+	<!-- info -->
+	<div class="wrapper" id="wrapper">
+	</div>
+	
+	<!-- footer -->
+	<footer>
+		подвал
+	</footer>
+
+	<!-- SCRIPTS -->
+	<script type="text/javascript" src="js/headhesive.min.js"></script>
+	<script type="text/javascript" src="js/js.js"></script>
+</body>
+</html>

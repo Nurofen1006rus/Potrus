@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<head>
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+</head>
+<body>
+	<div class="video">
+		<!--<video src="video/123.mp4" autoplay muted loop></video>-->
+	</div>
+
+	<div class="knopki">
+		<div class="fonknopki">
+			<div class="bigbutton">
+				<img src="img/Image_6.png" alt="bigbutton#1">
+				<span>Вертикальные<br>подъёмники</span>
+			</div>
+			<div class="bigbutton">
+				<img src="img/Image_7.png" alt="bigbutton#1">
+				<span>Наклодные<br>подъёмники</span>
+			</div>
+			<div class="bigbutton">
+				<img src="img/Image_8.png" alt="bigbutton#1">
+				<span>Нестарндартные<br>заказы</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="sale">
+		<div class="leftbar">
+			<p class="text">
+			<span class="zagolovok">
+				Подъёмно трансформируемое устройство ПТУ 001<br>
+			</span>
+				Лучшее решение для вашего бизнеса.
+				Монтаж на любые входные группы.
+				Соответствует всем нормативным документам.
+				Прост в обслуживании. Устанавливают как внутри, так и снаружи.
+			</p>
+		</div>
+		<div class="rightbar">
+			<img src="img/img09.png" alt="podemnik">
+		</div>
+		<button class="button_sale" id="BUT1">Узнать больше</button>
+		<button class="button_sale" id="BUT2">Сконфигурировать</button>
+	</div>
+
+	<div class="poloska">
+		<div class="kartinka">
+			<img src="img/Image_4.png" alt="poloska1" id="pol1">
+			<p><span>24 часа</span><br>
+			от оплаты до отгрузки</p>
+		</div>
+		<div class="kartinka">
+			<img src="img/Image_3.png" alt="poloska2" id="pol2">
+			<p><span>Первые</span><br>
+			на рынке подъёмных устройств</p>
+		</div>
+		<div class="kartinka">
+			<img src="img/image_1.png" alt="poloska3" id="pol3">
+			<p><span>150 городов</span><br>
+			уже с нами</p>
+		</div>
+		<div class="kartinka">
+			<img src="img/image_2.png" alt="poloska4" id="pol4">
+			<p><span>Технологичное</span><br>
+			производство</p>
+		</div>
+	</div>
+
+	<div class="info">
+		<span class="infocaption">Почему мы?</span>
+		<div class="textcontainer">
+			<p class="text"><span class="caption1">Авторство подтверждено патентом</span><br>
+			Наше авторство на изобретения подтверждено патентом №231455.<br>
+			<span class="caption1">Не требует согласования в Ростехнадзоре</span><br>
+			Подъемное трансформируемое устройство для маломобильного населения серии ПТУ не подлежит обязательной сертификации в соответствии с положениями Постановления Госстандарта России от 30 июля 2002 г. № 64<br>
+			<span class="caption1">Соответствие ТУ 4836-001-0171841972-2014 и ГОСТ 55555-2014</span><br>Вертикальный подъемник для инвалидов или маломобильных групп населения ПТУ-001 соответсвует ТУ 4836-001-0171841972-2014 и соотвествует ГОСТу 55555-2014, и является универсальным решение для доступа в общественные и жилые здания.<br>
+			<span class="caption1">Продуманная и унифицированная схема монтажа устройства
+			</span><br>Разработанная нами схема монтажа является самой универсальной  позволяет адаптировать подъемное устройство для установки на любую входную группу.<br>
+			<span class="caption1">Гарантийное обслуживание</span><br>Наше гарантийное обслуживание застрахует вас от проблем с устройством на все время действия договора.<br>
+			<span class="caption1">Адаптация устройства под ваши требования</span><br>Наши специалисты помогут разработать уникальное решение, подходящеее именно вам.</p>
+		</div>
+	</div>
+
+	<div class="map" id="map" style="width: all;">
+		<div class="rectangle">
+			<p class="adress">
+				БЛАБЛАБЛАБЛА
+				<br>
+				БЛАБЛАБЛАБЛА
+			</p>
+		</div>
+		<div id="YMapsID"></div>
+	</div>
+<script type="text/javascript">
+    var myMap;
+    ymaps.ready(function () {
+        myMap = new ymaps.Map("YMapsID", {
+            center: [55.15, 61.39],
+            zoom: 10
+        });
+    });
+</script>
+</body>
+</html>

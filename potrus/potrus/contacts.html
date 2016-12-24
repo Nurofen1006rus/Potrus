@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Наши контакты</title>
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/fullajax.min.js"></script>
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+</head>
+<body>
+	<!-- Contacts -->
+	<div class="contacts">
+		<h1>Контактная информация</h1>
+		<div class="leftbar_2">
+			<span class="caption">Как связаться</span><br>
+			<p>Наш офис в Челябинске: Челябинск ул. Попова 1<br>
+			Наши телефоны: +7(912)083-13-64, +7951-477-21-64<br> 
+			Мы работаем: с 9:00 до 17:00 пн-пт GMT+5<br>
+			<br><br>
+			Электронная почта:<br>
+			zakaz@potrus.ru - прибретение изделий<br>
+			tech@potrus.ru - технические вопросы и сотрудничество<br></p>
+		</div>
+		<div class="rightbar_2">
+			<span class="caption">Напишите нам</span><br>
+			<div class="inputs">
+				<form action="URL">
+					<div class="top">
+						<div class="top1">
+							<label for="title" class="label">Ваше имя:</label><br>
+							<label for="title" class="label">Контактный телефон:</label><br>
+							<label for="title" class="label">Ваш e-mail:</label><br>
+						</div>
+						<div class="top2">
+							<input type="text" class="textbox">
+							<input type="text" class="textbox">
+							<input type="text" class="textbox">
+						</div>
+					</div>
+					<div class="bot">
+						<label for="title" class="label">Ваше сообщение:</label>
+						<input type="text" class="bigtextbox">
+					</div>
+					<input type="submit" class="imputbut">
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- SCRIPTS -->
+	<script type="text/javascript" src="js/headhesive.min.js"></script>
+	<script type="text/javascript">
+    var myMap;
+    ymaps.ready(function () {
+        myMap = new ymaps.Map("YMapsID", {
+            center: [55.15, 61.39],
+            zoom: 10
+        });
+    });
+</script>
+</body>
+</html>
