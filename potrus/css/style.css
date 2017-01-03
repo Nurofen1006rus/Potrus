@@ -1,12 +1,49 @@
-/* INDEX.HTML*/
+/* font-family: "RobotoRegular"; */
 @font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v15/0eC6fl06luXEYWpBSJvXCBJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+    font-family: "RobotoRegular";
+    src: url("../fonts/RobotoRegular.eot");
+    src: url("../fonts/RobotoRegular.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/RobotoRegular.woff") format("woff"),
+    url("../fonts/RobotoRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
 }
+/* font-family: "RobotoLight"; */
+@font-face {
+    font-family: "RobotoLight";
+    src: url("../fonts/RobotoLight.eot");
+    src: url("../fonts/RobotoLight.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/RobotoLight.woff") format("woff"),
+    url("../fonts/RobotoLight.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "RobotoMedium"; */
+@font-face {
+    font-family: "RobotoMedium";
+    src: url("../fonts/RobotoMedium.eot");
+    src: url("../fonts/RobotoMedium.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/RobotoMedium.woff") format("woff"),
+    url("../fonts/RobotoMedium.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "RobotoBold"; */
+@font-face {
+    font-family: "RobotoBold";
+    src: url("../fonts/RobotoBold.eot");
+    src: url("../fonts/RobotoBold.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/RobotoBold.woff") format("woff"),
+    url("../fonts/RobotoBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* INDEX.HTML*/
 *{
-	font-family: 'Roboto', Roboto, sans-serif;
+	font-family: 'Roboto', sans-serif;
+	color: #000;
+	padding: 0;
+	margin: 0;
 }
 html{
 	width: 100%;
@@ -22,9 +59,8 @@ body{
 .wrapper{
 	width: 100%;
     margin: 0 auto;
+    height: 2350px !important;
     min-height: 100%;
-    height: 2300px !important;
-    height: 100%;
 	background: #ffffff;
 	position: relative;
 }
@@ -36,18 +72,24 @@ body{
 	width: 800px;
 	margin: 0 0 0 15%;
 	text-align: justify;
+	vertical-align: middle;
 }
 .header{
 	background: #ffffff;
 	opacity: 0;
 	margin-bottom: 40px;
 	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	font-family: 'RobotoRegular', sans-serif;
+}
+.header span{
+	font-size: 18px;
 }
 .logotype{
 	width: 48px;
 	height: auto;
 	margin-right: 10px;
 	vertical-align: middle;
+	cursor: pointer;
 }
 .headhesive{
 	background: #ffffff;
@@ -63,35 +105,61 @@ body{
 }
 .head_button{
 	border: none;
-	background: #3a7999;
-	color: #f3f5f2;
-	padding: 10px;
-	font-size: 18px;
-	border-radius: 25px;
+	font-size: 14px;
 	position: relative;
-	box-sizing: border-box;
-	transition: all 700ms;
 	text-decoration: none;
-	margin: 0 10px 0 15px; 
+	margin: 0 10px 0 10px;
+}
+.head_button:active{
+	color: #099FED;
 }
 .head_button:hover{
-	background: rgba(0,0,0,0);
-	color: #3a7999;
-	box-shadow: inset 0 0 0 3px #3a7999;
+	color: #099FED;
 }
+.header ul{
+	display: inline;
+}
+.header ul li{
+	display: inline;
+	width: 100%;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	cursor: pointer;
+}
+#calculate{
+	width: 200px;
+	height: 50px;
+	background: transparent;
+	color: #099FED;
+	border: 2px solid;
+	border-radius: 25px;
+	font-size: 16px;
+	margin: 0 0 0 40px;
+}
+#calculate:hover,
+#calculate:active{
+	color: #3FD016;
+	border-color: #3FD016;
+	cursor: pointer;
+}
+/* VIDEO!!!!!!!! */
 .video video{
 	height: 400px;
-	width: auto;
+	width: 100%;
 	align: center;
 	margin: 10px 0 0 0;
+	background: #19f717;
 }
 /* BigButtons */
 .knopki{
-	height: auto !important;
+	height: auto;
 	width: 100%;
 	margin: 0 auto;
 	text-align: center;
 	background: #f6f6f6;
+	display: block;
+	position: relative;
 }
 .fonknopki{
 	margin: 0 auto;
@@ -102,10 +170,9 @@ body{
 	margin: 20px 10px 10px 10px;
 	width: 27%;
 	height: 110px;
-	background: #f9fcfa;
+	background: #fff;
 	box-shadow: 5px inset #ffffff;
 	display: inline-block;
-	text-align: all;
 	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 .bigbutton img{
@@ -113,7 +180,17 @@ body{
 	margin: 15px;
 }
 .bigbutton span{
+	font-size: 20px;
+	font-family: 'RobotoLight', sans-serif;
 	text-align: center;
+	vertical-align: middle;
+	display: block;
+	margin-top: 28px;
+}
+.bigbutton span:hover,
+.bigbutton span:active{
+	color: #3FD016;
+	cursor: pointer; 
 }
 /* Sidebars */
 .sale{
@@ -121,15 +198,15 @@ body{
 	width: 1000px;
 	margin: 0 auto;
 	text-align: center;
+	font-style: 'RobotoRegular', sans-serif;
 }
 .sale button{
-	width: 245px;
+	width: 230px;
 	height: 60px;
 	font-size: 20px;
-	margin: 10px 10px 10px 10px;
 }
 #BUT1{
-	margin: 0px 0px 0px 90px;
+	margin: 0px 0px 0px 30px;
 }
 #BUT2{
 	margin: 0px 0px 0px 30px;
@@ -163,21 +240,18 @@ body{
 	margin: 0 auto;
 }
 .button_sale{
-	color: #3a7999;
-	border: 2px solid #3a7999;
+	color: #099FED;
+	border: 2px solid #099FED;
 	border-radius: 35px;
 	text-align: center;
 	outline: none;
 	background: transparent;
-	transition: all 500ms;
-	bottom: 0;
-	position: absolute;
 }
 .button_sale:hover,
 .button_sale:active{
-	background-color: transparent;
-	color: #ffffff;
-	background: #3a7999;
+	color: #3FD016;
+	border-color: #3FD016;
+	cursor: pointer;
 }
 /* Poloska */
 .poloska{
@@ -209,6 +283,7 @@ body{
 }
 .infocaption{
 	font-size: 35px;
+	font-style: 'RobotoLight', sans-serif;
 }
 .text span{
 	text-align: center;
@@ -264,36 +339,127 @@ body{
 /* Footer */
 footer{
 	width: 100%;
-    margin: -200px auto 0;
-    height: 200px;
-    background: black;
-    position: relative;
+    height: 250px;
+    margin-top: 0px;
+    background: #E2E5E1;
+    display: inline-block;
 }
+#footerimg{
+	margin: 10px 10px -20px 0px;
+}
+#link1{
+	font-size: 10px;
+	margin: -15px 29% 0 0;
+}
+#questions{
+	font-size: 24px;
+}
+#footertop{
+	margin: 0 0 -5px 0; 
+}
+.links{
+	display: inline-block;
+	vertical-align: middle;
+	margin: 20px 5% 0 5%;
+	text-align: left;
+}
+.footerbut{
+	width: 180px;
+	height: 30px;
+	border: 0;
+	background: #3FD016;
+	margin: 1px 0 0 -4px;
+	font-size: 18px;
+	color: #fff;
+	outline: none;
+}
+.footerbut:hover,
+.foterbut:active{
+	cursor: pointer;
+	color: #000;
+}
+.footertb{
+	width: 180px;
+	height: 30px;
+	margin: 0 0 0 20px;
+	outline: none;
+	border: 0;
+}
+
 /*===================================*/
 /* Contacts.HTML */
 .contacts{
-	width: 100%;
-	height: 2000px !important;
+	width: 1000px;
+	height: 1000px !important;
     height: 100%;
+    margin: 0 auto;
     text-align: center;
 }
+.contacts h1{
+	margin: 70px 0 0 0;
+}
 .leftbar_2{
-	margin: 0 0 0 15%;
+	margin: 20px auto;
+	float: left;
+}
+.leftbar_2 p{
+	text-align: left;
+	font-size: 16px;
 	float: left;
 }
 .rightbar_2{
-	margin: 0 15% 0 0;
+	margin: 20px auto;
 	float: right;
+	width: 57%;
 }
-.rightbar_2 span{
-	font-size: 18px;
+.caption{
+	font-size: 24px;
 }
-#caption{
-	font-size: 28px;
+.inputs{
+	margin: 16px auto;
+	float: right;
+	width: 100%;
+	height: 100%;
+}
+form{
+	vertical-align: middle;
 }
 .textbox{
-	width: 130px;
-	height: 23px;
+	float: left;
+	display: inline;
+	margin: 0 10px 0 0;
+	width: 150px;
+	height: 20px;
+}
+.top{
+	height: auto;
+	width: 100%;
+	margin: 0 auto;
+	display: inline-block;
+}
+.top1{
+	display: flex;
+}
+.label{
+	flex: 1;
+	float: left;
+	margin: 0 auto;
+}
+.textbox{
+	flex: 1;
+	float: left;
+	margin: 0 auto;
+}
+.bot{
+	height: auto;
+	width: 100%;
+	margin: 0 auto;
+	display: inline-block;
+}
+.bigtextbox{
+	width: 460px;
+	height: 75px;
+	float: left;
 }
 /*===================================*/
 /* AboutCompany.HTML */
@@ -328,17 +494,15 @@ footer{
 	padding: 0;
 }
 .bigtext{
-	text-align: center;
-	display: inline-block;
+	width: 100%;
+	display: flex;
 }
 .bigtext img{
-	float: left;
-	width: 33%;
+	width: 28%;
 }
 #paragraph_1{
-	width: 33%;
+	flex: 1;
 }
 #paragraph_2{
-	width: 33%;
-	float: right;
+	flex: 1;
 }

@@ -10,35 +10,43 @@
 <body>
 	<!-- Contacts -->
 	<div class="contacts">
+		<h1>Контактная информация</h1>
 		<div class="leftbar_2">
-			<p><span>Как связаться</span><br>
-			Наш офис в Челябинске: Челябинск ул. Попова 1<br>
+			<span class="caption">Как связаться</span><br>
+			<p>Наш офис в Челябинске: Челябинск ул. Попова 1<br>
 			Наши телефоны: +7(912)083-13-64, +7951-477-21-64<br> 
 			Мы работаем: с 9:00 до 17:00 пн-пт GMT+5<br>
 			<br><br>
 			Электронная почта:<br>
 			zakaz@potrus.ru - прибретение изделий<br>
-			tech@potrus.ru - технические вопросы и сотрудничество<br>
+			tech@potrus.ru - технические вопросы и сотрудничество<br></p>
 		</div>
 		<div class="rightbar_2">
-			<span id="caption">Напишите нам</span><br>
-			<p><span id="left">Ваше имя:</span><br>
-			<input type="textbox" class="textbox" id="left"></input>
-			<span id="center">Контактный телефон:</span><br>
-			<input type="textbox" class="textbox" id="center"></input>
-			<span id="right">Ваш email:</span><br>
-			<input type="textbox" class="textbox" id="right"></input>
-			<span>Ваше сообщение:</span><br>
-			<input type="textbox" id="textboxbig"></input><br>
-			</p>
-			<input type="submit"></input><br>
+			<span class="caption">Напишите нам</span><br>
+			<div class="inputs">
+				<form action="URL">
+					<div class="top">
+						<div class="top1">
+							<label for="title" class="label">Ваше имя:</label><br>
+							<label for="title" class="label">Контактный телефон:</label><br>
+							<label for="title" class="label">Ваш e-mail:</label><br>
+						</div>
+						<div class="top2">
+							<input type="text" class="textbox">
+							<input type="text" class="textbox">
+							<input type="text" class="textbox">
+						</div>
+					</div>
+					<div class="bot">
+						<label for="title" class="label">Ваше сообщение:</label>
+						<input type="text" class="bigtextbox">
+					</div>
+					<input type="submit" class="imputbut">
+				</form>
+			</div>
 		</div>
 	</div>
 
-	<!-- Map -->
-	<div class="map" id="map" style="margin-bottom: 20px;">
-		<div id="YMapsID"></div>
-	</div>
 
 	<!-- SCRIPTS -->
 	<script type="text/javascript" src="js/headhesive.min.js"></script>

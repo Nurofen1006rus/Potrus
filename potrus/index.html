@@ -3,6 +3,7 @@
 		<title>Potrus</title>
 		<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<script type="text/javascript" src="js/fullajax.min.js"></script>
 		<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
    		<script>
@@ -17,14 +18,16 @@
 <body>
 	<!-- header -->
 	<div class="header">
-
 		<div class="mid">
-			<img src="img/Image_01.png" alt="logo" class="logotype"  onclick="hajax('divs.html');">
-			<span>Potrus</span>
-			<button class="head_button" id="head_but_1" onclick="hajax('aboutcompany.html');">О компании</button>
-			<button class="head_button" id="head_but_2"  onclick="hajax('contacts.html');">Наши контакты</button>
-			<button class="head_button" id="head_but_3">Как сделать заказ?</button>
-			<button class="head_button" id="head_but_4" onclick="hajax('product.html');">Продукция</button>
+			<img src="img/Image_01.png" alt="logo" class="logotype" onclick="hajax('divs.html');">
+			<span>ПОТРУС</span>
+			<ul>
+				<li><a class="head_button" onclick="hajax('aboutcompany.html');">О компании</a></li>
+				<li><a class="head_button" onclick="hajax('contacts.html');">Контакты</a></li>
+				<li><a class="head_button" onclick="hajax('product.html');">Наша продукция</a></li>
+				<li><a class="head_button" onclick="hajax('product.html');">Статьи</a></li>
+			</ul>
+			<button id="calculate">Расчитать стоимость</button>
 		</div>
 	</div>
 
@@ -34,7 +37,35 @@
 	
 	<!-- footer -->
 	<footer>
-		подвал
+		<div id="footertop">
+			<img src="img/image_05.png" alt="telephone" id="footerimg">
+			<span id="questions">Остались вопросы? Задайте их нам!</span>
+			<input type="text" class="footertb">
+			<button type="submit" class="footerbut">Заказать звонок</button><br>
+		</div>
+		<a href="#" id="link1">я разобрался и выбераю подъёмник самостоятельно</a>
+		<div id="footerbot">
+			<p class="links">
+				<b>Компания</b><br>
+				<a href="aboutcompany.html" class="footerlink">О компании</a><br>
+				<a href="contacts.html" class="footerlink">Контакты</a><br>
+				<a href="#" class="footerlink">Наши преимущества</a><br>
+				<a href="sertification.html" class="footerlink">Сертификаты</a><br>
+				<a href="#" class="footerlink">Статьи</a><br>
+			</p>
+			<p class="links">
+				<b>Наши продукты</b><br>
+				<a href="v-podemniki.html" class="footerlink">Вертикальные подъёмники</a><br>
+				<a href="h-podemniki.html" class="footerlink">Наклонные подъёмники</a><br>
+				<a href="#" class="footerlink">Индивидуальные заказы</a><br>
+			</p>
+			<p class="links" id="adress">
+				<b>Челябинск</b><br>
+				Телефон: 8(800)100-11-20<br>
+				E-mail: zakaz@potrus.ru<br>
+				Адрес: ул. Попова
+			</p>
+		</div>
 	</footer>
 
 	<!-- SCRIPTS -->
