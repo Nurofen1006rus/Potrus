@@ -1,63 +1,118 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Наши контакты</title>
-	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script type="text/javascript" src="js/fullajax.min.js"></script>
-	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
-</head>
+﻿<!DOCTYPE html>
+	<head>
+		<title>Potrus</title>
+		<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<script type="text/javascript" src="js/fullajax.min.js"></script>
+		<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+	</head>
 <body>
-	<!-- Contacts -->
+	<!-- header -->
+	<div class="header">
+		<div class="mid">
+			<img src="img/Image_01.png" alt="logo" class="logotype"  onClick='location.href="index.html"'>
+			<span>ПОТРУС</span>
+			<ul class="menu">
+				<li><a class="head_button" href="aboutcompany.html">О компании</a></li>
+				<li><a class="head_button" href="contacts.html">Контакты</a></li>
+				<li><a class="head_button" href="v-podemniki.html">Вертикальные подъёмники</a></li>
+				<li><a class="head_button" href="h-podemniki.html">Горизонтальные подъёмники</a></li>
+				<li><a class="head_button" href="articles.html">Статьи</a></li>
+			</ul>
+			<button id="calculate">Расчитать стоимость</button>
+		</div>
+	</div>
+	<div class="wrapper" id="wrapper">
 	<div class="contacts">
 		<h1>Контактная информация</h1>
 		<div class="leftbar_2">
 			<span class="caption">Как связаться</span><br>
-			<p>Наш офис в Челябинске: Челябинск ул. Попова 1<br>
-			Наши телефоны: +7(912)083-13-64, +7951-477-21-64<br> 
-			Мы работаем: с 9:00 до 17:00 пн-пт GMT+5<br>
+			<p><b>Наш офис в Челябинске:</b> Челябинск ул. Попова 1<br>
+			<b>Наши телефоны:</b> +7(912)083-13-64, +7951-477-21-64<br> 
+			<b>Мы работаем:</b> с 9:00 до 17:00 пн-пт GMT+5<br>
 			<br><br>
-			Электронная почта:<br>
-			zakaz@potrus.ru - прибретение изделий<br>
-			tech@potrus.ru - технические вопросы и сотрудничество<br></p>
+			<b>Электронная почта:</b><br>
+			<span id="po4ta1">zakaz@potrus.ru</span> - прибретение изделий<br>
+			<span id="po4ta2">tech@potrus.ru</span> - технические вопросы и сотрудничество<br></p>
 		</div>
 		<div class="rightbar_2">
 			<span class="caption">Напишите нам</span><br>
 			<div class="inputs">
 				<form action="URL">
 					<div class="top">
-						<div class="top1">
-							<label for="title" class="label">Ваше имя:</label><br>
-							<label for="title" class="label">Контактный телефон:</label><br>
-							<label for="title" class="label">Ваш e-mail:</label><br>
-						</div>
-						<div class="top2">
-							<input type="text" class="textbox">
-							<input type="text" class="textbox">
-							<input type="text" class="textbox">
-						</div>
+						<table>
+							<tr>
+								<td><label class="label">Ваше имя</label></td>
+								<td><label class="label">Контактный телефон</label></td>
+								<td><label class="label">Ваш e-mail</label></td>
+							</tr>
+							<tr>
+								<td><input type="text" class="textbox"></td>
+								<td><input type="text" class="textbox"></td>
+								<td><input type="text" class="textbox"></td>
+							</tr>
+						</table>
 					</div>
 					<div class="bot">
-						<label for="title" class="label">Ваше сообщение:</label>
-						<input type="text" class="bigtextbox">
+						<table>
+							<tr>
+								<td><label for="title" class="label">Ваше сообщение</label></td>
+							</tr>
+							<tr>
+								<td><textarea class="bigtextbox" placeholder="Оставьте сообщение здесь..."></textarea></td>
+							</tr>
+						</table>
 					</div>
-					<input type="submit" class="imputbut">
+					<input type="submit" class="input123">
 				</form>
 			</div>
 		</div>
 	</div>
-
-
-	<!-- SCRIPTS -->
+	</div>
+	<footer>
+		<div class="poloska3">
+			<div class="poloska-kartinka3">
+				<div id="footertop">
+					<img src="img/image_05.png" alt="telephone" id="footerimg">
+					<span id="questions">Остались вопросы? Задайте их нам!</span>	
+				</div>
+				<div class="poloska-input">
+					<input type="text" class="footertb">
+				</div>
+				<div class="poloska-button">
+					<button type="submit" class="footerbut">Заказать звонок</button><br>
+				</div>
+				<div class="poloska-input1">
+					<a href="#" id="link1">Я разобрался и выбираю подъёмник самостоятельно</a>
+				</div>
+				<div class="poloska-input4">
+					<p class="links">
+						<b>Компания</b><br>
+						<a href="aboutcompany.html" class="footerlink">О компании</a><br>
+						<a href="contacts.html" class="footerlink">Контакты</a><br>
+						<a href="#" class="footerlink">Наши преимущества</a><br>
+						<a href="sertification.html" class="footerlink">Сертификаты</a><br>
+						<a href="#" class="footerlink">Статьи</a><br>
+					</p>
+					<p class="links">
+						<b>Наши продукты</b><br>
+						<a href="v-podemniki.html" class="footerlink">Вертикальные подъёмники</a><br>
+						<a href="h-podemniki.html" class="footerlink">Наклонные подъёмники</a><br>
+						<a href="#" class="footerlink">Индивидуальные заказы</a><br>
+					</p>
+					<p class="links" id="adress">
+						<b>Челябинск</b><br>
+						Телефон: 8(800)100-11-20<br>
+						E-mail: zakaz@potrus.ru<br>
+						Адрес: ул. Попова
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
 	<script type="text/javascript" src="js/headhesive.min.js"></script>
-	<script type="text/javascript">
-    var myMap;
-    ymaps.ready(function () {
-        myMap = new ymaps.Map("YMapsID", {
-            center: [55.15, 61.39],
-            zoom: 10
-        });
-    });
-</script>
+	<script type="text/javascript" src="js/js.js"></script>
+	<script type="text/javascript" src="js/footertobottom.js"></script>
 </body>
 </html>

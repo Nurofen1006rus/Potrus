@@ -1,74 +1,205 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 	<head>
 		<title>Potrus</title>
 		<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<script type="text/javascript" src="js/fullajax.min.js"></script>
+		<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 		<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
-   		<script>
-   			//ajax
-			function hajax (url) 
-			{
-	       		hax({url: url, id:'wrapper', nohistory:1})
-	    	}
-			window.onload=hajax('divs.html');
-		</script>
 	</head>
 <body>
-	<!-- header -->
+	<!-- Header -->
 	<div class="header">
 		<div class="mid">
-			<img src="img/Image_01.png" alt="logo" class="logotype" onclick="hajax('divs.html');">
+			<img src="img/Image_01.png" alt="logo" class="logotype"  onClick='location.href="index.html"'>
 			<span>ПОТРУС</span>
-			<ul>
-				<li><a class="head_button" onclick="hajax('aboutcompany.html');">О компании</a></li>
-				<li><a class="head_button" onclick="hajax('contacts.html');">Контакты</a></li>
-				<li><a class="head_button" onclick="hajax('product.html');">Наша продукция</a></li>
-				<li><a class="head_button" onclick="hajax('product.html');">Статьи</a></li>
+			<ul class="menu">
+				<li><a class="head_button" href="aboutcompany.html">О компании</a></li>
+				<li><a class="head_button" href="contacts.html">Контакты</a></li>
+				<li><a class="head_button" href="v-podemniki.html">Вертикальные подъёмники</a></li>
+				<li><a class="head_button" href="h-podemniki.html">Горизонтальные подъёмники</a></li>
+				<li><a class="head_button" href="articles.html">Статьи</a></li>
 			</ul>
 			<button id="calculate">Расчитать стоимость</button>
 		</div>
 	</div>
-
-	<!-- info -->
+	<!-- Wrapper -->
 	<div class="wrapper" id="wrapper">
-	</div>
-	
-	<!-- footer -->
-	<footer>
-		<div id="footertop">
-			<img src="img/image_05.png" alt="telephone" id="footerimg">
-			<span id="questions">Остались вопросы? Задайте их нам!</span>
-			<input type="text" class="footertb">
-			<button type="submit" class="footerbut">Заказать звонок</button><br>
+		<!-- Video -->
+		<div class="vidos">
+			<video src="video/123.mp4" autoplay loop muted></video>
+			<div class="textvideo">
+				<e class="text_on_video_zagolovok">Оборудование для людей</e>
+				<p class="text_on_video">За <d class="text_on_video_big">7 лет</d> продано порядка <d class="text_on_video_big">6000</d>&nbsp;подьемников<br>
+				Высота наших подьемников <d class="text_on_video_big">15000</d> км<br>
+				Свыше <d class="text_on_video_big">150</d> городов уже с нами<br>
+				Запатентованная <d class="text_on_video_big">нами</d> надежная конструкция</p>
+				<button class="videobut">Узнать больше</button>
+				<button class="videobut">Заказать звонок</button>
+			</div>
 		</div>
-		<a href="#" id="link1">я разобрался и выбераю подъёмник самостоятельно</a>
-		<div id="footerbot">
-			<p class="links">
-				<b>Компания</b><br>
-				<a href="aboutcompany.html" class="footerlink">О компании</a><br>
-				<a href="contacts.html" class="footerlink">Контакты</a><br>
-				<a href="#" class="footerlink">Наши преимущества</a><br>
-				<a href="sertification.html" class="footerlink">Сертификаты</a><br>
-				<a href="#" class="footerlink">Статьи</a><br>
-			</p>
-			<p class="links">
-				<b>Наши продукты</b><br>
-				<a href="v-podemniki.html" class="footerlink">Вертикальные подъёмники</a><br>
-				<a href="h-podemniki.html" class="footerlink">Наклонные подъёмники</a><br>
-				<a href="#" class="footerlink">Индивидуальные заказы</a><br>
-			</p>
-			<p class="links" id="adress">
-				<b>Челябинск</b><br>
-				Телефон: 8(800)100-11-20<br>
-				E-mail: zakaz@potrus.ru<br>
-				Адрес: ул. Попова
-			</p>
+		<!-- Knopki -->
+		<div class="knopki">
+			<div class="fonknopki">
+				<div class="bigbutton" onClick='location.href="v-podemniki.html"'>
+					<img src="img/Image_6.png" alt="bigbutton#1">
+					<span>Вертикальные<br>подъёмники</span>
+				</div>
+				<div class="bigbutton" onClick='location.href="h-podemniki.html"'>
+					<img src="img/Image_7.png" alt="bigbutton#1">
+					<span>Наклодные<br>подъёмники</span>
+				</div>
+				<div class="bigbutton" onClick='location.href="calc.html"'>
+					<img src="img/Image_8.png" alt="bigbutton#1">
+					<span>Нестандартные<br>заказы</span>
+				</div>
+			</div>
+		</div>
+		<!-- Sale -->
+		<div class="sale">
+			<div class="leftbar">
+				<p class="text_on_1">
+				<span class="zagolovok">
+					Подъёмно трансформируемое устройство ПТУ 001<br>
+				</span>
+					Лучшее решение для вашего бизнеса.
+					Монтаж на любые входные группы.
+					Соответствует всем нормативным документам.
+					Прост в обслуживании. Устанавливают как внутри, так и снаружи.
+				</p>
+			</div>
+			<div class="rightbar">
+				<img src="img/img09.png" alt="podemnik">
+			</div>
+			<button class="button_sale" id="BUT1">Узнать больше</button>
+			<button class="button_sale" id="BUT2">Сконфигурировать</button>
+		</div>
+		<!-- Poloska -->
+		<div class="poloska">
+			<div class="poloska-kartinka">
+			<div class="kartinka">
+				<img src="img/Image_4.png" alt="poloska1" id="pol1" width="78px" height="78px">
+				<p class="poloska_kartina_small_text">
+				<span class="poloska_kartina_big_text">24 часа</span>
+				<br>
+				от оплаты до отгрузки</p>
+			</div>
+			<div class="kartinka">
+				<img src="img/Image_3.png" alt="poloska2" id="pol2" width="78px" height="78px">
+				<p class="poloska_kartina_small_text">
+				<span class="poloska_kartina_big_text">Первые</span>
+				<br>
+				на  рынке подъёмных устройств</p>
+			</div>
+			<div class="kartinka">
+				<img src="img/image_1.png" alt="poloska3" id="pol3" width="78px" height="78px">
+				<p class="poloska_kartina_small_text">
+				<span class="poloska_kartina_big_text">150 городов</span>
+				<br>
+				уже с нами</p>
+			</div>
+			<div class="kartinka">
+				<img src="img/image_2.png" alt="poloska4" id="pol4" width="78px" height="78px">
+				<p class="poloska_kartina_small_text">
+				<span class="poloska_kartina_big_text">Технологичное</span
+				><br>
+				производство</p>
+			</div>
+			</div>
+		</div>
+		<!-- Info -->
+		<div class="info">
+			<span class="infocaption">Почему мы?</span>
+			<div class="textcontainer">
+				<p class="text"><span class="caption1">Авторство подтверждено патентом</span><br>
+				Наше авторство на изобретения подтверждено патентом №231455.<br>
+				<span class="caption1">Не требует согласования в Ростехнадзоре</span><br>
+				Подъемное трансформируемое устройство для маломобильного населения серии ПТУ не подлежит обязательной сертификации в соответствии с положениями Постановления Госстандарта России от 30 июля 2002 г. № 64<br>
+				<span class="caption1">Соответствие ТУ 4836-001-0171841972-2014 и ГОСТ 55555-2014</span><br>Вертикальный подъемник для инвалидов или маломобильных групп населения ПТУ-001 соответсвует ТУ 4836-001-0171841972-2014 и соотвествует ГОСТу 55555-2014, и является универсальным решение для доступа в общественные и жилые здания.<br>
+				<span class="caption1">Продуманная и унифицированная схема монтажа устройства
+				</span><br>Разработанная нами схема монтажа является самой универсальной  позволяет адаптировать подъемное устройство для установки на любую входную группу.<br>
+				<span class="caption1">Гарантийное обслуживание</span><br>Наше гарантийное обслуживание застрахует вас от проблем с устройством на все время действия договора.<br>
+				<span class="caption1">Адаптация устройства под ваши требования</span><br>Наши специалисты помогут разработать уникальное решение, подходящеее именно вам.</p>
+			</div>
+		</div>
+		<!-- Map -->
+		<div class="rectangle_all">
+			<div class="rectangle_all_in">
+				<div class="rectangle">
+					<p class="adress">
+						География наших работ
+					</p>
+				</div>
+				<div class="triangle-down">
+				</div>
+			</div>
+			<div class="map" id="map" style="width: all;">
+				<div id="YMapsID"></div>
+			</div>
+		<script type="text/javascript">
+		    var myMap;
+		    ymaps.ready(function () {
+		        myMap = new ymaps.Map("YMapsID", {
+		            center: [55.189652, 61.427813],
+		            zoom: 12
+		        }),
+				myPlacemark1 = new ymaps.Placemark([55.189652, 61.427813], {
+		            hintContent: 'Офис компании Potrus',
+		            balloonContent: 'Адрес, Телефон, Офиса'
+		        }, {
+		            iconLayout: 'default#image',
+		            iconImageHref: 'img/1483630012_location-24.png',
+		            iconImageSize: [40, 40],
+		            iconImageOffset: [-10, -10]
+		        });
+				myMap.geoObjects.add(myPlacemark1);
+		    });</script>
+		</div>
+	</div>
+	<!-- Footer -->
+	<footer>
+		<div class="poloska3">
+			<div class="poloska-kartinka3">
+				<div id="footertop">
+					<img src="img/image_05.png" alt="telephone" id="footerimg">
+					<span id="questions">Остались вопросы? Задайте их нам!</span>	
+				</div>
+				<div class="poloska-input">
+					<input type="text" class="footertb">
+				</div>
+				<div class="poloska-button">
+					<button type="submit" class="footerbut">Заказать звонок</button><br>
+				</div>
+				<div class="poloska-input1">
+					<a href="#" id="link1">Я разобрался и выбираю подъёмник самостоятельно</a>
+				</div>
+				<div class="poloska-input4">
+					<p class="links">
+						<b>Компания</b><br>
+						<a href="aboutcompany.html" class="footerlink">О компании</a><br>
+						<a href="contacts.html" class="footerlink">Контакты</a><br>
+						<a href="#" class="footerlink">Наши преимущества</a><br>
+						<a href="sertification.html" class="footerlink">Сертификаты</a><br>
+						<a href="#" class="footerlink">Статьи</a><br>
+					</p>
+					<p class="links">
+						<b>Наши продукты</b><br>
+						<a href="v-podemniki.html" class="footerlink">Вертикальные подъёмники</a><br>
+						<a href="h-podemniki.html" class="footerlink">Наклонные подъёмники</a><br>
+						<a href="#" class="footerlink">Индивидуальные заказы</a><br>
+					</p>
+					<p class="links" id="adress">
+						<b>Челябинск</b><br>
+						Телефон: 8(800)100-11-20<br>
+						E-mail: zakaz@potrus.ru<br>
+						Адрес: ул. Попова
+					</p>
+				</div>
+			</div>
 		</div>
 	</footer>
-
-	<!-- SCRIPTS -->
+	<!-- Scripts -->
 	<script type="text/javascript" src="js/headhesive.min.js"></script>
 	<script type="text/javascript" src="js/js.js"></script>
 </body>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 	<title>Наклонные подъемники</title>
@@ -6,10 +6,195 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script type="text/javascript" src="js/fullajax.min.js"></script>
 	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+	<style>
+	 p {
+    margin-top: 0.5em; /* Отступ сверху */
+    margin-bottom: 1em; /* Отступ снизу */
+   }
+	.podemnik
+	{
+	width: 100%;
+	height: auto;
+	display: inline-block;
+	text-align: left;
+	}
+	.vimg{
+	float: right; 
+	width: 40%; 
+	height: 500px;
+	}
+	.vtext
+	{
+	float: left; 
+	width: 60%; 
+	height: 500px;
+	}
+	.vbut{
+	width: 230px;
+	height: 60px;
+	font-size: 20px;
+	color: #099FED;
+	border: 2px solid #099FED;
+	border-radius: 35px;
+	text-align: center;
+	outline: none;
+	background: transparent;
+	margin: 0px 0px 0px 30px;
+	display: inline;
+	}
+	.vbut:hover,
+	.vbut:active{
+	color: #3FD016;
+	border-color: #3FD016;
+	cursor: pointer;
+	}
+	</style>
 </head>
 <body>
-	<!-- Contacts -->
-	<div class="h-podemniki">
+	<div class="header">
+		<div class="mid">
+			<img src="img/Image_01.png" alt="logo" class="logotype"  onClick='location.href="index.html"'>
+			<span>ПОТРУС</span>
+			<ul class="menu">
+				<li><a class="head_button" href="aboutcompany.html">О компании</a></li>
+				<li><a class="head_button" href="contacts.html">Контакты</a></li>
+				<li><a class="head_button" href="v-podemniki.html">Вертикальные подъёмники</a></li>
+				<li><a class="head_button" href="h-podemniki.html">Горизонтальные подъёмники</a></li>
+				<li><a class="head_button" href="articles.html">Статьи</a></li>
+			</ul>
+			<button id="calculate">Расчитать стоимость</button>
 		</div>
+	</div>
+<div class="wrapper" id="wrapper">
+	<div class="h-pod" style="width:1000px; margin: 0 auto; text-align:left;">
+		<p>
+			<b>Вертикальный лестничный подъёмник ПТУ 002:</b> универсальный, простой и безопасный. Платформа передвигается по наклонной траектории. Максимальная длина лестничного марша - 6м. Изготавливается по ГОСТу Р 55555-2013 и соответствует ТУ 4836-001-0171841972-2014, 		является  <b>оптимальным решением</b> оптимальным решением обеспечения доступности в общественных, частных и жилых зданиях.
+		</p>
+		<div class="podemnik">
+			<div class="vtext">
+				<p>
+					Подьемно трансформируемое устройство ПТУ 002
+				</p>
+				<p>
+					<b>ПТУ 002</b> - платформа передвигается по диагонали. Подходит для ситаций, когда использование вертикального подъемного устройства, в силу особенностей места установки, невозможно. Комплектуется беспроводным пультом.
+					Опциональное исполнение из композитноно материала
+				</p>
+				<button class="vbut" id="button1">Заказать</button>
+				<button class="vbut" id="button2">Технические характиристик </button>
+			</div>
+			<div class="vimg">
+				<img src="img/img09.png" width="300px" height="400px"></img>
+			</div>
+		</div>
+		<div class="poloska">
+			Сконфигурировать  подъемное устройство прямо на странице <button class="vbut" id="construct">Попробовать</button>
+		</div>
+		<div id="mnogoteksta">
+			<p>Основные преимущества:</p>
+			<ul>
+				<li>Высокая надежность и доступная цена
+ 				<li>Не требует согласования в Ростехнадзоре
+				<li>Возможна установка как внутри, так и снаружи здания
+ 				<li>Монтируется на существующие входные группы, не нарушая их конструкции и внешнего вида
+				<li>Возможность адаптации к конструкционным и дизайнерским особенностям места установки
+				<li>Занимает лестничный подъёмник минимум пространства
+				<li>Инвалидный лестничный подъёмник имеет антивандальное исполнение
+				<li>Управления КПУ (кнопочный пульт управления), либо ПДУ (пульт дистанционного управления)
+				<li>Исключено несанкционированное использование
+				<li>Цифровой блок управления двигателем
+			</ul>
+			<p>		
+				Производство подъемного оборудования - наша сильная сторона. За годы существования компании наши специалисты реализовали десятки проектов различной степени сложности. Среди наших клиентов - компании разнообразных сфер деятельности, которым требуются как стандартные решения подъемного оборудования так и инвидуальные разработки по желанию клиента.
+
+				Что Вы получите от сотрудничества с нами, заказав подъемное оборудование?
+
+				Ясное и прозрачное ценообразование с оплатой по результату. Вы платите нам только за то, что вы покупаете. Наши цены окончательные без дополнительных навязанных услуг.
+
+				Отзывчивая техническая поддержка. Покупая у нас подъемник для маломобильного населения мы даем вам годовую гарантию. Наша гарантия застрахует вас от таких курьезов, как внезапно неработающий подъемник или проблемы с настройкой.Даже по истечению срока годовой гарантии мы всегда находим варианты устраивающие наших клиентов. 
+
+				Выполненные обязательства точно в срок. Организация нашей работы позволяет нам поставлять нашу продукцию уже на следующий день, после оплаты. Благодаря нам, вы никогда не сорвете сроки.
+
+				Полный пакет сопроводительных документов. Мы комплектуем наши подъемники полным пакетом документов и сертификатов соответствующим всем нормативам.
+
+				Индивидуальный подход к вашему заказу. Подгототавливаем инвидуальные решения изготовления и комплектации подъемного оборудования подходящие именно вам.
+
+				Оборудование с использованием запантентованной нами технологией производства.Наша запатентованная технология производства в сочетании с высококачественными материалами позволяет нам производить самое качественное и долговечное оборудование на рынке.
+
+				Монтаж подъемного оборудования квалифицированными специалистами. Наши специалисты осуществляют быстрый и качественный монтаж не нарушая вида входной группы с соблюдением всех нормативов. 
+
+				Комплексный подход: консультация при выборе комплектации, быстрые сроки поставки, квалифицированный монтаж и пусконаладка, гарантия и техническая поддерка.
+
+				Ясные условия сотрудничества, четко прописанные в договоре на оказание услуг по изготовлению подъемного оборудования для инвалидов
+
+			</p>
+		</div>
+	</div>
+	<div class="map" id="map" style="width: all;">
+			<div class="rectangle"></div>
+			<div id="YMapsID"></div>
+		</div>
+<script type="text/javascript">
+    var myMap;
+    ymaps.ready(function () {
+        myMap = new ymaps.Map("YMapsID", {
+            center: [55.189652, 61.427813],
+            zoom: 12
+        }),
+		myPlacemark1 = new ymaps.Placemark([55.189652, 61.427813], {
+            hintContent: 'Офис компании Potrus',
+            balloonContent: 'Адрес, Телефон, Офиса'
+        }, {
+            iconLayout: 'default#image',
+            iconImageHref: 'img/1483630012_location-24.png',
+            iconImageSize: [40, 40],
+            iconImageOffset: [-10, -10]
+        });
+		myMap.geoObjects.add(myPlacemark1);
+    });
+</script>
+</div>
+	<footer>
+		<div class="poloska3">
+	<div class="poloska-kartinka3">
+				<div id="footertop">
+			<img src="img/image_05.png" alt="telephone" id="footerimg">
+			<span id="questions">Остались вопросы? Задайте их нам!</span>	
+		</div>
+		<div class="poloska-input">
+			<input type="text" class="footertb">
+			</div>
+			<div class="poloska-button">
+			<button type="submit" class="footerbut">Заказать звонок</button><br>
+			</div>
+			<div class="poloska-input1">
+			<a href="#" id="link1">Я разобрался и выбираю подъёмник самостоятельно</a>
+			</div>
+			<div class="poloska-input4">
+			<p class="links">
+				<b>Компания</b><br>
+				<a href="aboutcompany.html" class="footerlink">О компании</a><br>
+				<a href="contacts.html" class="footerlink">Контакты</a><br>
+				<a href="#" class="footerlink">Наши преимущества</a><br>
+				<a href="sertification.html" class="footerlink">Сертификаты</a><br>
+				<a href="#" class="footerlink">Статьи</a><br>
+			</p>
+			<p class="links">
+				<b>Наши продукты</b><br>
+				<a href="v-podemniki.html" class="footerlink">Вертикальные подъёмники</a><br>
+				<a href="h-podemniki.html" class="footerlink">Наклонные подъёмники</a><br>
+				<a href="#" class="footerlink">Индивидуальные заказы</a><br>
+			</p>
+			<p class="links" id="adress">
+				<b>Челябинск</b><br>
+				Телефон: 8(800)100-11-20<br>
+				E-mail: zakaz@potrus.ru<br>
+				Адрес: ул. Попова
+			</p>
+			</div>
+		</div>
+	</div>
+	</footer>
+	<script type="text/javascript" src="js/headhesive.min.js"></script>
+	<script type="text/javascript" src="js/js.js"></script>
 </body>
 </html>

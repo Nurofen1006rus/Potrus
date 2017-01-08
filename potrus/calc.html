@@ -1,0 +1,1718 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+    <title>Example 01.04 - Materials, light and animatimertion</title>
+    <script type="text/javascript" src="libs/three.js"></script>
+    <script type="text/javascript" src="libs/jquery-1.9.0.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+        
+        <script src="js/loaders/collada/Animation.js"></script>
+        <script src="js/loaders/collada/AnimationHandler.js"></script>
+        <script src="js/loaders/collada/KeyFrameAnimation.js"></script>
+        <script src="js/OrbitControls.js"></script>
+ 
+        <script src="js/loaders/DDSLoader.js"></script>
+        <script src="js/loaders/MTLLoader.js"></script>
+        <script src="js/loaders/OBJLoader.js"></script>
+        <script src="js/Detector.js"></script>
+        <script src="js/libs/stats.min.js"></script>
+
+    <script type='text/javascript' src='js/DAT.GUI.min.js'></script>
+<style>
+  h1 {
+  font-size:120%;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #333366;}
+  .form-container {
+   border: 1px solid #f2e3d2;
+   background: #c9b7a2;
+   background: -webkit-gradient(linear, left top, left bottom, from(#f5f0eb), to(#c9b7a2));
+   background: -webkit-linear-gradient(top, #f5f0eb, #c9b7a2);
+   background: -moz-linear-gradient(top, #f5f0eb, #c9b7a2);
+   background: -ms-linear-gradient(top, #f5f0eb, #c9b7a2);
+   background: -o-linear-gradient(top, #f5f0eb, #c9b7a2);
+   background-image: -ms-linear-gradient(top, #f5f0eb 0%, #c9b7a2 100%);
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   border-radius: 8px;
+   -webkit-box-shadow: rgba(000,000,000,0.9) 0 1px 2px, inset rgba(255,255,255,0.4) 0 0px 0;
+   -moz-box-shadow: rgba(000,000,000,0.9) 0 1px 2px, inset rgba(255,255,255,0.4) 0 0px 0;
+   box-shadow: rgba(000,000,000,0.9) 0 1px 2px, inset rgba(255,255,255,0.4) 0 0px 0;
+   font-family: 'Helvetica Neue',Helvetica,sans-serif;
+   text-decoration: none;
+   vertical-align: middle;
+   min-width:300px;
+   padding:20px;
+   width:300px;
+   }  
+.form-field {
+   border: 1px solid #c9b7a2;
+   background: #e4d5c3;
+   -webkit-border-radius: 4px;
+   -moz-border-radius: 4px;
+   border-radius: 4px;
+   color: #c9b7a2;
+   -webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(000,000,000,0.7) 0 0px 0px;
+   -moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(000,000,000,0.7) 0 0px 0px;
+   box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(000,000,000,0.7) 0 0px 0px;
+   padding:8px;
+   margin-bottom:20px;
+   width:280px;
+   }
+.form-field:focus {
+   background: #fff;
+   color: #725129;
+   }
+.form-container h2 {
+   text-shadow: #fdf2e4 0 1px 0;
+   font-size:18px;
+   margin: 0 0 10px 0;
+   font-weight:bold;
+   text-align:center;
+    }
+.form-title {
+
+   margin-bottom:10px;
+   color: #4a3722;
+   text-shadow: #fdf2e4 0 1px 0;
+   }
+   #p1 {
+  position: relative;
+   
+   bottom: 28px; 
+  
+   float: left;
+   color: #4a3722;
+   font-size: 22pt;
+   
+   }
+   #p2 {
+     position: relative;
+   
+   bottom: 28px;
+    font-size: 22pt;
+    float: left;
+   
+   color: #4a3722;
+   
+   }
+   #p3 {
+    text-align: left; 
+    font-size: 20px;
+    float: top;
+   
+   color: #4a3722;
+   
+   }
+.submit-container {
+   margin:8px 0;
+   text-align:right;
+   }
+.buttonyellow {
+
+   border: 1px solid #447314;
+   background: #6aa436;
+   background: -webkit-gradient(linear, left top, left bottom, from(#8dc059), to(#6aa436));
+   background: -webkit-linear-gradient(top, #8dc059, #6aa436);
+   background: -moz-linear-gradient(top, #8dc059, #6aa436);
+   background: -ms-linear-gradient(top, #8dc059, #6aa436);
+   background: -o-linear-gradient(top, #8dc059, #6aa436);
+   background-image: -ms-linear-gradient(top, #8dc059 0%, #6aa436 100%);
+   -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+   border-radius: 6px;
+   -webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+   -moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+   box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+   text-shadow: #addc7e 0 1px 0;
+   color: #31540c;
+   font-family: helvetica, serif;
+   padding: 8.5px 18px;
+   font-size: 20px;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.submit-button:hover {
+   border: 1px solid #447314;
+   text-shadow: #31540c 0 1px 0;
+   background: #6aa436;
+   background: -webkit-gradient(linear, left top, left bottom, from(#8dc059), to(#6aa436));
+   background: -webkit-linear-gradient(top, #8dc059, #6aa436);
+   background: -moz-linear-gradient(top, #8dc059, #6aa436);
+   background: -ms-linear-gradient(top, #8dc059, #6aa436);
+   background: -o-linear-gradient(top, #8dc059, #6aa436);
+   background-image: -ms-linear-gradient(top, #8dc059 0%, #6aa436 100%);
+   color: #fff;
+   }
+.submit-button:active {
+   text-shadow: #31540c 0 1px 0;
+   border: 1px solid #447314;
+   background: #8dc059;
+   background: -webkit-gradient(linear, left top, left bottom, from(#6aa436), to(#6aa436));
+   background: -webkit-linear-gradient(top, #6aa436, #8dc059);
+   background: -moz-linear-gradient(top, #6aa436, #8dc059);
+   background: -ms-linear-gradient(top, #6aa436, #8dc059);
+   background: -o-linear-gradient(top, #6aa436, #8dc059);
+   background-image: -ms-linear-gradient(top, #6aa436 0%, #8dc059 100%);
+   color: #fff;
+   }
+    ::-webkit-input-placeholder {color:#c0392b;}
+    ::-moz-placeholder          {color:#c0392b;}/* Firefox 19+ */
+    :-moz-placeholder           {color:#c0392b;}/* Firefox 18- */
+    :-ms-input-placeholder      {color:#c0392b;}
+    :focus::-webkit-input-placeholder {color: transparent}
+    :focus::-moz-placeholder          {color: transparent}
+    :focus:-moz-placeholder           {color: transparent}
+    :focus:-ms-input-placeholder      {color: transparent}
+    .input1::-webkit-input-placeholder       {opacity: 1; transition: opacity 0.3s ease;}
+    .input1::-moz-placeholder                {opacity: 1; transition: opacity 0.3s ease;}
+    .input1:-moz-placeholder                 {opacity: 1; transition: opacity 0.3s ease;}
+    .input1:-ms-input-placeholder            {opacity: 1; transition: opacity 0.3s ease;}
+    .input1:focus::-webkit-input-placeholder {opacity: 0; transition: opacity 0.3s ease;}
+    .input1:focus::-moz-placeholder          {opacity: 0; transition: opacity 0.3s ease;}
+    .input1:focus:-moz-placeholder           {opacity: 0; transition: opacity 0.3s ease;}
+    .input1:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s ease;}
+    iv { margin: 20px; }
+
+
+select#type_podem, select#type_podem-color {
+   -webkit-appearance: button;
+   -webkit-border-radius: 2px;
+   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+   -webkit-padding-end: 20px;
+   -webkit-padding-start: 2px;
+   -webkit-user-select: none;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+   background-position: 97% center;
+   background-repeat: no-repeat;
+   border: 1px solid #AAA;
+   color: #555;
+   font-size: inherit;
+   margin: 0px;
+   margin-top: 10px;
+   margin-bottom: 10px;
+   overflow: hidden;
+   padding: 5px 10px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 300px;
+}
+
+select#type_podem-color {
+   color: #fff;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#779126, #779126 40%, #779126);
+   background-color: #779126;
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+   padding-left: 15px;
+}
+select#d4, select#d4-color {
+   -webkit-appearance: button;
+   -webkit-border-radius: 2px;
+   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+   -webkit-padding-end: 20px;
+   -webkit-padding-start: 2px;
+   -webkit-user-select: none;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+   background-position: 97% center;
+   background-repeat: no-repeat;
+   border: 1px solid #AAA;
+   color: #555;
+   font-size: inherit;
+   margin: 0px;
+   margin-top: 10px;
+   margin-bottom: 10px;
+   overflow: hidden;
+   padding: 5px 10px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 300px;
+}
+
+select#d4-color {
+   color: #fff;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#779126, #779126 40%, #779126);
+   background-color: #779126;
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+   padding-left: 15px;
+}
+select#d1, select#d1-color {
+   -webkit-appearance: button;
+   -webkit-border-radius: 2px;
+   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+   -webkit-padding-end: 20px;
+   -webkit-padding-start: 2px;
+   -webkit-user-select: none;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+   background-position: 97% center;
+   background-repeat: no-repeat;
+   border: 1px solid #AAA;
+   color: #555;
+   font-size: inherit;
+   margin: 0px;
+   margin-top: 10px;
+   margin-bottom: 10px;
+   overflow: hidden;
+   padding: 5px 10px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 300px;
+}
+
+select#d1-color {
+   color: #fff;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#779126, #779126 40%, #779126);
+   background-color: #779126;
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+   padding-left: 15px;
+}
+select#d2, select#d2-color {
+   -webkit-appearance: button;
+   -webkit-border-radius: 2px;
+   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+   -webkit-padding-end: 20px;
+   -webkit-padding-start: 2px;
+   -webkit-user-select: none;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+   background-position: 97% center;
+   background-repeat: no-repeat;
+   border: 1px solid #AAA;
+   color: #555;
+   font-size: inherit;
+   margin: 0px;
+   margin-top: 10px;
+   margin-bottom: 10px;
+   
+   overflow: hidden;
+   padding: 5px 10px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 300px;
+}
+
+select#d2-color {
+   color: #fff;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#779126, #779126 40%, #779126);
+   background-color: #779126;
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+   padding-left: 15px;
+}
+select#d5, select#d5-color {
+   -webkit-appearance: button;
+   -webkit-border-radius: 2px;
+   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+   -webkit-padding-end: 20px;
+   -webkit-padding-start: 2px;
+   -webkit-user-select: none;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+   background-position: 97% center;
+   background-repeat: no-repeat;
+   border: 1px solid #AAA;
+   color: #555;
+   font-size: inherit;
+   margin: 0px;
+   margin-top: 10px;
+   margin-bottom: 10px;
+   overflow: hidden;
+   padding: 5px 10px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 300px;
+}
+
+select#d5-color {
+   color: #fff;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#779126, #779126 40%, #779126);
+   background-color: #779126;
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+   padding-left: 15px;
+}
+select#d3, select#d3-color {
+   -webkit-appearance: button;
+   -webkit-border-radius: 2px;
+   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+   -webkit-padding-end: 20px;
+   -webkit-padding-start: 2px;
+   -webkit-user-select: none;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+   background-position: 97% center;
+   background-repeat: no-repeat;
+   border: 1px solid #AAA;
+   color: #555;
+   font-size: inherit;
+   margin: 0px;
+   margin-top: 10px;
+   margin-bottom: 10px;
+   overflow: hidden;
+   padding: 5px 10px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 300px;
+}
+
+select#d3-color {
+   color: #fff;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#779126, #779126 40%, #779126);
+   background-color: #779126;
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+   padding-left: 15px;
+}
+a { color: red }
+/*body{
+  font-family: Monospace;
+  background-color:pink;
+  margin: 0px;
+  overflow: hidden;
+}*/
+#GUI_calc{
+	color: #fff;
+	position: relative;
+	width: 50%;
+	text-align: left;
+	z-index: 100;
+	display: block;
+	font-family: Tahoma, Geneva, sans-serif;
+	color: black;
+}
+#WebGL-output{
+  content: '';
+  position: relative;
+	width: 50%;
+	height: 600px;
+}
+/*body{
+  margin: 0;
+  overflow: hidden;
+  background-color: #DBDBDB
+}*/
+.vbut{
+	width: 230px;
+	height: 60px;
+	font-size: 20px;
+	color: #099FED;
+	border: 2px solid #099FED;
+	border-radius: 35px;
+	text-align: center;
+	outline: none;
+	background: transparent;
+	margin: 0px 0px 0px 30px;
+	display: inline;
+	}
+	.vbut:hover,
+	.vbut:active{
+	color: #3FD016;
+	border-color: #3FD016;
+	cursor: pointer;
+	}
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="calculatorr">
+    <div id="GUI_calc">
+      <form method="POST" action="mysendmail.php" class="form-container">
+          Выберите тип подьемника:<br> 
+                <select id="type_podem" name="type_podem" onchange="funcselectpodem();">
+                    <option value="13">Вертикальный подьемник</option>
+                    <option value="14">Наклонный подьемник</option>
+
+                </select>
+            </p>
+            <div id="div_vert_podem">
+           Выберите тип ограждения:<br>
+        			<select name="find_inc" id="d1" onchange="funcselectmodel();">
+              
+          			<option value="Без ограждения">Без ограждения</option>
+          			<option value="Складное ограждение">Складное ограждение</option>
+          			<option value="Стационарное ограждение">Стационарное ограждение</option>
+        			</select><br>
+        			Способ управления платформой:<br>
+        		<select name="find_control"  id="d2" onchange="funcselectoption();">
+         		<option value="Проводной пульт управления">Проводной пульт управления</option>
+         		<option value="Радиоканал">Радиканал (беспроводной пульт)</option>
+        		</select>
+        		<br>
+        			Материал настила на платформе<br>
+        		<select name="find_nastil" id="d3" onchange="funcselecnast();">
+         		<option value="Оцинкованная сетка">Оцинкованная сетка</option>
+            <option value="Алюминиевый">Алюминиевый лист	</option>
+         		
+        		</select>
+            </div>
+                <div id="div_nakl_podem">
+                      Материал настила:<br>
+                    <select name="find_nastil_nakl" id="d4" onchange="funcselect_nast_nakl_podem();">
+                    <option value="Оцинкованная сетка">Оцинкованная сетка</option>
+                    <option value="Композитный_материал">Композитный материал</option>
+
+                    </select>
+                                  <br>Длина лестничничного марша:<br>
+                    <select name="dlina_lest_marsh" id="d5" onchange="funcselecnakl_dlina();">
+                    <option value="Оцинкованная сетка">От трех метров</option>
+                    <option value="Композитный_материал">От трех до шести</option>
+
+                    </select>
+            </div>
+                <div class="form-title"><h2>Оставьте ваши контакты</h2></div>
+                <div class="form-title">Как к вам можно обращаться?</div>
+                    <input class="form-field" type="text" name="name" /><br />
+                <div class="form-title">Телефон</div>
+                     <input class="form-field" type="text" name="phone" /><br />
+                <div class="form-title">Email</div>
+                    <input class="form-field" type="text" name="email" /><br />
+                
+                <div class="submit-container">
+                    <p id="p3">Итоговая стоимость:</p>
+                   <p id="p1">60000</p><p id="p2">&nbspRUB</p>   
+                     <input class="vbut" type="submit" value="Заказать" />
+                     
+            
+            </div>
+        		</div>
+
+            </p>
+      </form></div>
+    <div id="WebGL-output"></div>
+  </div>
+
+<!--
+		       <form method="POST" action="mysendmail.php" class="form-container">
+			Выберите вариант ограждения:<br>
+		
+			<select name="find_inc" id="d1" onchange="funcselectmodel();">
+  			<option value="Без ограждения">Без ограждения</option>
+  			<option value="Складное ограждение">Складное ограждение</option>
+  			<option value="Стационарное ограждение">Стационарное ограждение</option>
+			</select><br>
+			Способ управления платформой:<br>
+		<select name="find_control"  id="d2" onchange="funcselectoption();">
+ 		<option value="Проводной пульт управления">Проводной пульт управления</option>
+ 		<option value="Радиоканал">Радиканал (беспроводной пульт)</option>
+		</select>
+		<br>
+			Материал настила на платформе<br>
+		<select name="find_nastil" id="d3" onchange="funcselecnast();">
+ 		<option value="Оцинкованная сетка">Оцинкованная сетка</option>
+    <option value="Алюминиевый">Алюминиевый</option>
+ 		
+		</select>
+-->
+		
+		
+<!--			 
+    <div class="form-title"><h2>Оставьте ваши контакты</h2></div>
+        <div class="form-title">Как к вам можно обращаться?</div>
+            <input class="form-field" type="text" name="name" /><br />
+        <div class="form-title">Телефон</div>
+             <input class="form-field" type="text" name="phone" /><br />
+        <div class="form-title">Email</div>
+            <input class="form-field" type="text" name="email" /><br />
+        
+        <div class="submit-container">
+            <p id="p3">Итоговая стоимость:</p>
+           <p id="p1">60000</p><p id="p2">&nbspRUB</p>   
+             <input class="buttonyellow" type="submit" value="Заказать" />
+             
+    
+    </div>
+		</div>	
+		-->	
+
+
+
+<!-- Div which will hold the Output -->
+  
+
+<!-- Javascript code that runs our Three.js examples -->
+<script type="text/javascript">
+$(document).ready(function () {
+    toggleFields(); //call this first so we start out with the correct visibility depending on the selected form values
+    //this will call our toggleFields function every time the selection value of our underAge field changes
+    $("#type_podem").change(function () {
+        toggleFields();
+    });
+
+});
+//this toggles the visibility of our parent permission fields depending on the current selected value of the underAge field
+function toggleFields() {
+$("#parentPermission2").hide();
+$("#parentPermission").hide();
+
+
+   if ($("#type_podem").val() <= 13)
+ 
+        $("#div_vert_podem").show();
+    else
+        $("#div_vert_podem").hide();
+
+           if ($("#type_podem").val() > 13)
+
+        $("#div_nakl_podem").show();
+    else
+        $("#div_nakl_podem").hide();
+        
+}	
+	var scene;
+	var veranda;
+	var model_1; //Подьемник без ограждения
+	var ogr_1, ogr_2, ogr_3, ogr_glob; // Первое, второе и третье ограджение
+	var ogr_1_steel, ogr_2_steel, ogr_3_steel; //Настил на ограждениях стальной рифленый
+	var ogr_1_alum, ogr_2_alum, ogr_3_alum; // Настил на ограждениях алюминиевый
+    var sel_model,sel_ogr,sel_nastil,sel_nakl_ogr,sel_nakl_dlina;
+    sel_nakl_ogr = 0;
+    sel_nakl_dlina = 0;
+    var itog = 0;
+    var gui;
+    var ogr_tek, potrus;
+    ogr_tek = 0;
+    var ogr_tek_type, ogr_final;
+    sel_model=60000;
+		sel_ogr=0;
+    sel_nastil=0;
+
+           
+    		function delete_all_oject_vert_podem_scene()
+		{
+			scene.remove(ogr_1, ogr_2, ogr_3, ogr_glob,ogr_1_steel, ogr_2_steel, ogr_3_steel,ogr_1_alum, ogr_2_alum, ogr_3_alum,sel_model,sel_ogr,sel_nastil, model_1);
+		}
+		    		function delete_all_oject_nakl_podem_scene()
+		{
+			scene.remove(nakl_osn,nakl_platform,nakl_nast_steel,nakl_nast_komposit_on_podem,nakl_nast_komposit_on_platform);
+		}
+    		function funcselecnakl_dlina()
+		{
+		    switch(d5.selectedIndex)
+		    {   
+            case 0:
+            sel_nakl_dlina = 0;
+            itog = sel_model + sel_nakl_ogr + sel_nakl_dlina;
+            $("#p1").text(itog);
+            break;
+            case 1:
+            sel_nakl_dlina = 35000;
+            itog = sel_model + sel_nakl_ogr + sel_nakl_dlina;
+            $("#p1").text(itog);
+            break;
+		    }
+		    //alert(d2.selectedIndex);
+		}
+		function funcselectpodem()
+		{
+		    switch(type_podem.selectedIndex)
+		    {   
+            case 0:
+            delete_all_oject_nakl_podem_scene()
+
+            scene.add(model_1);
+            scene.add(ogr_1);
+            scene.add(ogr_1_steel);
+
+
+
+            break;
+            case 1:
+            delete_all_oject_vert_podem_scene();
+            scene.add(nakl_nast_steel);
+            scene.add(nakl_osn);
+            scene.add(nakl_platform);
+            sel_model= 89000;
+            itog = sel_model + sel_nakl_ogr + sel_nakl_dlina;
+            $("#p1").text(itog);	
+            //scene.add(nakl_nast_komposit_on_podem);
+            //scene.add(nakl_nast_komposit_on_platform);
+            break;
+		    }
+		    //alert(d2.selectedIndex);
+		}
+		function funcselect_nast_nakl_podem()
+		{
+		    switch(d4.selectedIndex)
+		    {   
+            case 0:
+            sel_nakl_ogr = 0;
+            //delete_all_oject_nakl_podem_scene()
+
+            //scene.add(model_1);
+            //scene.add(ogr_1);
+            //scene.add(ogr_1_steel);
+            scene.add(nakl_nast_steel);
+            scene.remove(nakl_nast_komposit_on_podem);
+            scene.remove(nakl_nast_komposit_on_platform);
+            itog = sel_model + sel_nakl_ogr + sel_nakl_dlina;
+            $("#p1").text(itog);
+            break;
+            case 1:
+            sel_nakl_ogr = 15000;
+            //delete_all_oject_vert_podem_scene();
+            scene.remove(nakl_nast_steel);
+            //scene.add(nakl_osn);
+            //scene.add(nakl_platform);
+            scene.add(nakl_nast_komposit_on_podem);
+            scene.add(nakl_nast_komposit_on_platform);
+            itog = sel_model + sel_nakl_ogr + sel_nakl_dlina;
+            $("#p1").text(itog);
+            break;
+		    }
+		    //alert(d2.selectedIndex);
+		}
+    function funcselecnast()
+    {
+        switch(d3.selectedIndex)
+        {   
+            case 0:
+                switch(ogr_tek)
+                {
+                  case 0:
+                  scene.add(ogr_1_steel);
+                  scene.remove(ogr_2_steel);
+                  scene.remove(ogr_3_steel);
+                  scene.remove(ogr_1_alum);
+                  scene.remove(ogr_2_alum);
+                  scene.remove(ogr_3_alum);
+                  break;
+
+                  case 1:
+                  scene.add(ogr_2_steel);
+                  scene.remove(ogr_1_steel);
+                  scene.remove(ogr_3_steel);
+                  scene.remove(ogr_1_alum);
+                  scene.remove(ogr_2_alum);
+                  scene.remove(ogr_3_alum);                  
+                  break;
+
+                  case 2:
+                  scene.add(ogr_3_steel);
+                  scene.remove(ogr_1_steel);
+                  scene.remove(ogr_2_steel);
+
+                  scene.remove(ogr_1_alum);
+                  scene.remove(ogr_2_alum);
+                  scene.remove(ogr_3_alum);
+                  break;
+                }
+            //ogr_tek = 0;
+            sel_nastil=0;
+            itog = sel_model + sel_ogr + sel_nastil;
+            $("#p1").text(itog);
+
+            break;
+            case 1:
+                switch(ogr_tek)
+                {
+                  case 0:
+                  scene.add(ogr_1_alum);
+                  scene.remove(ogr_2_alum);
+                  scene.remove(ogr_3_alum);
+                  scene.remove(ogr_1_steel);
+                  scene.remove(ogr_2_steel);
+                  scene.remove(ogr_3_steel);
+                  break;
+
+                  case 1:
+                  scene.add(ogr_2_alum);
+                  scene.remove(ogr_1_alum);
+                  scene.remove(ogr_3_alum);
+                  scene.remove(ogr_1_steel);
+                  scene.remove(ogr_2_steel);
+                  scene.remove(ogr_3_steel);
+                  break;
+
+                  case 2:
+                                    scene.add(ogr_3_alum);
+                  scene.remove(ogr_1_alum);
+                  scene.remove(ogr_2_alum);
+
+                  scene.remove(ogr_1_steel);
+                  scene.remove(ogr_2_steel);
+                  scene.remove(ogr_3_steel);
+                  break;
+                }            
+
+            //ogr_tek = 1;
+            sel_nastil=7000;
+            itog = sel_model + sel_ogr + sel_nastil;
+            $("#p1").text(itog);
+            //alert(sel_ogr);
+            break;
+        }
+        //alert(d2.selectedIndex);
+    
+    }
+		function funcselectoption()
+		{
+		    switch(d2.selectedIndex)
+		    {   
+            case 0:
+            //scene.add(ogr_1_steel);
+            //scene.remove(ogr_1_alum);
+
+            sel_ogr=0;
+            itog = sel_model + sel_ogr + sel_nastil;
+            $("#p1").text(itog);
+            break;
+            case 1:
+            sel_ogr=11000;
+            itog = sel_model + sel_ogr + sel_nastil;
+            $("#p1").text(itog);
+            //alert(sel_ogr);
+            break;
+		    }
+		    //alert(d2.selectedIndex);
+		}
+			//function func_onclick_select()
+			//{alert("select")};
+			function funcselectmodel()
+			{	 
+				switch(d1.selectedIndex) {
+				case 0:
+        switch(d3.selectedIndex)
+        {
+          case 0:
+          scene.add(ogr_1_steel);
+                            scene.remove(ogr_2_steel);
+                  scene.remove(ogr_3_steel);
+                  scene.remove(ogr_1_alum);
+                  scene.remove(ogr_2_alum);
+                  scene.remove(ogr_3_alum);
+
+
+          break;
+
+          case 1:
+          scene.add(ogr_1_alum);
+                            scene.remove(ogr_2_alum);
+                  scene.remove(ogr_3_alum);
+                  scene.remove(ogr_1_steel);
+                  scene.remove(ogr_2_steel);
+                  scene.remove(ogr_3_steel);
+          break;
+        }
+        ogr_tek = 0;
+        //ogr_tek_type = 0;
+				sel_model=60000;
+        itog = sel_model + sel_ogr + sel_nastil;
+        $("#p1").text(itog);
+
+          scene.add(ogr_1);
+    			scene.remove(ogr_2);
+    			scene.remove(ogr_3);
+
+				break;
+				
+				case 1:
+        switch(d3.selectedIndex)
+        {
+          case 0:
+          scene.add(ogr_2_steel);
+                            scene.remove(ogr_1_steel);
+                  scene.remove(ogr_3_steel);
+                  scene.remove(ogr_1_alum);
+                  scene.remove(ogr_2_alum);
+                  scene.remove(ogr_3_alum);
+
+          
+          break;
+
+          case 1:
+          scene.add(ogr_2_alum);
+                            scene.remove(ogr_1_alum);
+                  scene.remove(ogr_3_alum);
+                  scene.remove(ogr_1_steel);
+                  scene.remove(ogr_2_steel);
+                  scene.remove(ogr_3_steel);
+          break;
+        }
+        ogr_tek = 1;
+        //ogr_tek_type = 1;
+        sel_model=65000;
+        itog = sel_model + sel_ogr + sel_nastil;
+        $("#p1").text(itog);
+				scene.remove(ogr_1,ogr_3);
+        //scene.remove(ogr_3);
+        //scene.remove(nast_3);
+        scene.add(ogr_2);
+        //scene.add(ogr_tek);
+
+        //scene.add(nast_2);
+        //scene.remove(ogr_1_steel);
+
+				break;
+
+				case 2:
+        switch(d3.selectedIndex)
+        {
+          case 0:
+          scene.add(ogr_3_steel);
+                            scene.remove(ogr_1_steel);
+                  scene.remove(ogr_2_steel);
+
+                  scene.remove(ogr_1_alum);
+                  scene.remove(ogr_2_alum);
+                  scene.remove(ogr_3_alum);
+          
+          break;
+
+          case 1:
+          scene.add(ogr_3_alum);
+                            scene.remove(ogr_1_alum);
+                  scene.remove(ogr_2_alum);
+
+                  scene.remove(ogr_1_steel);
+                  scene.remove(ogr_2_steel);
+                  scene.remove(ogr_3_steel);
+          break;
+        }
+        ogr_tek = 2;
+        //ogr_tek_type = 2;
+        sel_model=67000;
+        itog = sel_model + sel_ogr + sel_nastil;
+        $("#p1").text(itog);
+				scene.remove(ogr_2);
+				scene.remove(ogr_1);
+				scene.add(ogr_3);
+        //scene.add(ogr_tek);
+        //scene.remove(ogr_1_steel);
+        //scene.add(nast_3);
+        //scene.remove(nast_2);
+				//alert("model3");
+				//alert(d1.selectedIndex);
+				//scene.remove(model_1);
+				//scene.remove(model_2);
+				//scene.add(model_3);
+				break;
+				}
+			}
+    $(function () {
+      //Загружаем базовый подьемник через ОБЖ и МТЛ
+     
+
+            //podemnik_baza
+
+        var mtlLoader = new THREE.MTLLoader();
+        mtlLoader.setPath( 'models/collada/monster/' );
+        mtlLoader.load( 'podemnik_baza1.mtl', function( materials ) {
+
+          materials.preload();
+
+          var objLoader = new THREE.OBJLoader();
+          objLoader.setMaterials( materials );
+          objLoader.setPath( 'models/collada/monster/' );
+          objLoader.load( 'podemnik_baza1.obj', function ( object ) {
+                    object.position.x = 0;
+        object.position.y = 12;
+        object.position.z = 0;
+        object.scale.x = object.scale.y = object.scale.z = 10;
+            //object.position.y = - 50;
+            //scene.add( object );
+            model_1 = object;
+
+
+          });
+
+        });
+
+          // ogr_1
+
+        var mtlLoader1 = new THREE.MTLLoader();
+        mtlLoader1.setPath( 'models/collada/monster/' );
+        mtlLoader1.load( 'ogr_1.mtl', function( materials1 ) {
+
+          materials1.preload();
+
+          var objLoader1 = new THREE.OBJLoader();
+          objLoader1.setMaterials( materials1 );
+          objLoader1.setPath( 'models/collada/monster/' );
+          objLoader1.load( 'ogr_1.obj', function ( ogr_1_exp ) {
+                    ogr_1_exp.position.x = 0;
+        ogr_1_exp.position.y = 19;
+        ogr_1_exp.position.z = 0;
+        ogr_1_exp.scale.x = ogr_1_exp.scale.y = ogr_1_exp.scale.z = 10;
+            //object.position.y = - 50;
+            //return ogr_1;
+           ogr_1 = ogr_1_exp;
+           //scene.add( ogr_1 );
+          
+
+          });
+
+        });
+      // конец загрузки
+                // ogr_2
+                  
+        var mtlLoader2 = new THREE.MTLLoader();
+        mtlLoader2.setPath( 'models/collada/monster/' );
+        mtlLoader2.load( 'ogr_2.mtl', function( materials2 ) {
+
+          materials2.preload();
+
+          var objLoader2 = new THREE.OBJLoader();
+          objLoader2.setMaterials( materials2 );
+          objLoader2.setPath( 'models/collada/monster/' );
+          objLoader2.load( 'ogr_2.obj', function ( ogr_2_exp ) {
+                    ogr_2_exp.position.x = 0;
+        ogr_2_exp.position.y = 19;
+        ogr_2_exp.position.z = 0;
+        ogr_2_exp.scale.x = ogr_2_exp.scale.y = ogr_2_exp.scale.z = 10;
+            //object.position.y = - 50;
+            //return ogr_1;
+           ogr_2 = ogr_2_exp;
+           //scene.add( ogr_2_exp );
+          
+
+          });
+
+        });
+
+        var mtlLoader3 = new THREE.MTLLoader();
+        mtlLoader3.setPath( 'models/collada/monster/' );
+        mtlLoader3.load( 'ogr_3.mtl', function( materials3 ) {
+
+          materials3.preload();
+
+          var objLoader3 = new THREE.OBJLoader();
+          objLoader3.setMaterials( materials3 );
+          objLoader3.setPath( 'models/collada/monster/' );
+          objLoader3.load( 'ogr_3.obj', function ( ogr_3_exp ) {
+          ogr_3_exp.position.x = 0;
+          ogr_3_exp.position.y = 19;
+          ogr_3_exp.position.z = 0;
+          ogr_3_exp.scale.x = ogr_3_exp.scale.y = ogr_3_exp.scale.z = 10;
+            //object.position.y = - 50;
+            //return ogr_1;
+           ogr_3 = ogr_3_exp;
+           //scene.add( ogr_2_exp );
+          
+
+          });
+
+        });
+
+          //добавляем обьекты на сцену
+
+
+
+          //первое ограждение перфо
+        var mtlLoader4 = new THREE.MTLLoader();
+        mtlLoader4.setPath( 'models/collada/monster/' );
+        mtlLoader4.load( 'ogr1_nast_perfo.mtl', function( materials4 ) {
+
+          materials4.preload();
+
+          var objLoader4 = new THREE.OBJLoader();
+          objLoader4.setMaterials( materials4 );
+          objLoader4.setPath( 'models/collada/monster/' );
+          objLoader4.load( 'ogr1_nast_perfo.obj', function ( ogr_1__nast_perfo_exp ) {
+          ogr_1__nast_perfo_exp.position.x = 0;
+          ogr_1__nast_perfo_exp.position.y = 19;
+          ogr_1__nast_perfo_exp.position.z = 0;
+          ogr_1__nast_perfo_exp.scale.x = ogr_1__nast_perfo_exp.scale.y = ogr_1__nast_perfo_exp.scale.z = 10;
+            //object.position.y = - 50;
+            //return ogr_1;
+           ogr_1_steel = ogr_1__nast_perfo_exp;
+           //scene.add( ogr_2_exp );
+          
+
+          });
+
+        });
+
+          //первое ограждение алюм
+        var mtlLoader5 = new THREE.MTLLoader();
+        mtlLoader5.setPath( 'models/collada/monster/' );
+        mtlLoader5.load( 'ogr1_nast_alum.mtl', function( materials5 ) {
+
+          materials5.preload();
+
+          var objLoader5 = new THREE.OBJLoader();
+          objLoader5.setMaterials( materials5 );
+          objLoader5.setPath( 'models/collada/monster/' );
+          objLoader5.load( 'ogr1_nast_alum.obj', function ( ogr_1__nast_alum_exp ) {
+          ogr_1__nast_alum_exp.position.x = 0;
+          ogr_1__nast_alum_exp.position.y = 19;
+          ogr_1__nast_alum_exp.position.z = 0;
+          ogr_1__nast_alum_exp.scale.x = ogr_1__nast_alum_exp.scale.y = ogr_1__nast_alum_exp.scale.z = 10;
+            //object.position.y = - 50;
+            //return ogr_1;
+           ogr_1_alum = ogr_1__nast_alum_exp;
+           //scene.add( ogr_2_exp );
+          
+
+          });
+
+        });
+          //третье ограждение перфо
+        var mtlLoader6 = new THREE.MTLLoader();
+        mtlLoader6.setPath( 'models/collada/monster/' );
+        mtlLoader6.load( 'ogr_3_nast_perfo.mtl', function( materials6 ) {
+
+          materials6.preload();
+
+          var objLoader6 = new THREE.OBJLoader();
+          objLoader6.setMaterials( materials6 );
+          objLoader6.setPath( 'models/collada/monster/' );
+          objLoader6.load( 'ogr_3_nast_perfo.obj', function ( ogr_3__nast_perfo_exp ) {
+          ogr_3__nast_perfo_exp.position.x = 0;
+          ogr_3__nast_perfo_exp.position.y = 19;
+          ogr_3__nast_perfo_exp.position.z = 0;
+          ogr_3__nast_perfo_exp.scale.x = ogr_3__nast_perfo_exp.scale.y = ogr_3__nast_perfo_exp.scale.z = 10;
+            //object.position.y = - 50;
+            //return ogr_1;
+           ogr_3_steel = ogr_3__nast_perfo_exp;
+           //scene.add( ogr_2_exp );
+          
+
+          });
+
+        });
+          
+          //третье ограждение алюм
+        var mtlLoader7 = new THREE.MTLLoader();
+        mtlLoader7.setPath( 'models/collada/monster/' );
+        mtlLoader7.load( 'ogr_3_nast_alum.mtl', function( materials7 ) {
+
+          materials7.preload();
+
+          var objLoader7 = new THREE.OBJLoader();
+          objLoader7.setMaterials( materials7 );
+          objLoader7.setPath( 'models/collada/monster/' );
+          objLoader7.load( 'ogr_3_nast_alum.obj', function ( ogr_3__nast_alum_exp ) {
+          ogr_3__nast_alum_exp.position.x = 0;
+          ogr_3__nast_alum_exp.position.y = 19;
+          ogr_3__nast_alum_exp.position.z = 0;
+          ogr_3__nast_alum_exp.scale.x = ogr_3__nast_alum_exp.scale.y = ogr_3__nast_alum_exp.scale.z = 10;
+            //object.position.y = - 50;
+            //return ogr_1;
+           ogr_3_alum = ogr_3__nast_alum_exp;
+           //scene.add( ogr_2_exp );
+          
+
+          });
+
+        });
+
+//второе ограждение перфо
+
+        var mtlLoader8 = new THREE.MTLLoader();
+        mtlLoader8.setPath( 'models/collada/monster/' );
+        mtlLoader8.load( 'ogr2_nast_perfo.mtl', function( materials8 ) {
+
+          materials8.preload();
+
+          var objLoader8 = new THREE.OBJLoader();
+          objLoader8.setMaterials( materials8 );
+          objLoader8.setPath( 'models/collada/monster/' );
+          objLoader8.load( 'ogr2_nast_perfo.obj', function ( ogr_2__nast_perfo_exp ) {
+          ogr_2__nast_perfo_exp.position.x = 0;
+          ogr_2__nast_perfo_exp.position.y = 19;
+          ogr_2__nast_perfo_exp.position.z = 0;
+          ogr_2__nast_perfo_exp.scale.x = ogr_2__nast_perfo_exp.scale.y = ogr_2__nast_perfo_exp.scale.z = 10;
+            //object.position.y = - 50;
+            //return ogr_1;
+           ogr_2_steel = ogr_2__nast_perfo_exp;
+           //scene.add( ogr_2_exp );
+          
+
+          });
+
+        });
+
+
+        var mtlLoader9 = new THREE.MTLLoader();
+        mtlLoader9.setPath( 'models/collada/monster/' );
+        mtlLoader9.load( 'ogr2_nast_alum.mtl', function( materials9 ) {
+
+          materials9.preload();
+
+          var objLoader9 = new THREE.OBJLoader();
+          objLoader9.setMaterials( materials9 );
+          objLoader9.setPath( 'models/collada/monster/' );
+          objLoader9.load( 'ogr2_nast_alum.obj', function ( ogr_2__nast_alum_exp ) {
+          ogr_2__nast_alum_exp.position.x = 0;
+          ogr_2__nast_alum_exp.position.y = 19;
+          ogr_2__nast_alum_exp.position.z = 0;
+          ogr_2__nast_alum_exp.scale.x = ogr_2__nast_alum_exp.scale.y = ogr_2__nast_alum_exp.scale.z = 10;
+            //object.position.y = - 50;
+            //return ogr_1;
+           ogr_2_alum = ogr_2__nast_alum_exp;
+           //scene.add( ogr_2_exp );
+          
+
+          });
+
+        });
+                var mtlLoader10 = new THREE.MTLLoader();
+        mtlLoader10.setPath( 'models/collada/monster/' );
+        mtlLoader10.load( 'nakl_osn1.mtl', function( materials10 ) {
+
+          materials10.preload();
+
+          var objLoader10 = new THREE.OBJLoader();
+          objLoader10.setMaterials( materials10 );
+          objLoader10.setPath( 'models/collada/monster/' );
+          objLoader10.load( 'nakl_osn1.obj', function ( nakl_osn_exp ) {
+          nakl_osn_exp.position.x = 10;
+          nakl_osn_exp.position.y = 19;
+          nakl_osn_exp.position.z = -30	;
+          nakl_osn_exp.scale.x = nakl_osn_exp.scale.y = nakl_osn_exp.scale.z = 10;
+            //object.position.y = - 50;
+            //return ogr_1;
+           nakl_osn = nakl_osn_exp;
+           //scene.add( ogr_2_exp );
+          
+
+          });
+
+        });
+                        var mtlLoader11 = new THREE.MTLLoader();
+        mtlLoader11.setPath( 'models/collada/monster/' );
+        mtlLoader11.load( 'nakl_platform.mtl', function( materials11 ) {
+
+          materials11.preload();
+
+          var objLoader11 = new THREE.OBJLoader();
+          objLoader11.setMaterials( materials11 );
+          objLoader11.setPath( 'models/collada/monster/' );
+          objLoader11.load( 'nakl_platform.obj', function ( nakl_osn_exp2 ) {
+          nakl_osn_exp2.position.x = 10;
+          nakl_osn_exp2.position.y = 19;
+          nakl_osn_exp2.position.z = 0;
+          nakl_osn_exp2.scale.x = nakl_osn_exp2.scale.y = nakl_osn_exp2.scale.z = 10;
+            //object.position.y = - 50;
+            //return ogr_1;
+           nakl_platform = nakl_osn_exp2;
+           //scene.add( ogr_2_exp );
+          
+
+          });
+
+        });
+        
+                        var mtlLoader12 = new THREE.MTLLoader();
+        mtlLoader12.setPath( 'models/collada/monster/' );
+        mtlLoader12.load( 'nakl_nast_steel_text.mtl', function( materials12 ) {
+
+          materials12.preload();
+
+          var objLoader12 = new THREE.OBJLoader();
+          objLoader12.setMaterials( materials12 );
+          objLoader12.setPath( 'models/collada/monster/' );
+          objLoader12.load( 'nakl_nast_steel_text.obj', function ( nakl_osn_exp ) {
+          nakl_osn_exp.position.x = 10;
+          nakl_osn_exp.position.y = 19;
+          nakl_osn_exp.position.z = 30;
+          nakl_osn_exp.scale.x = nakl_osn_exp.scale.y = nakl_osn_exp.scale.z = 10;
+            //object.position.y = - 50;
+            //return ogr_1;
+           nakl_nast_steel = nakl_osn_exp;
+           //scene.add( ogr_2_exp );
+          
+
+          });
+
+        });
+        
+                        var mtlLoader13 = new THREE.MTLLoader();
+        mtlLoader13.setPath( 'models/collada/monster/' );
+        mtlLoader13.load( 'nakl_nast_komposit_on_podem.mtl', function( materials13 ) {
+
+          materials13.preload();
+
+          var objLoader13 = new THREE.OBJLoader();
+          objLoader13.setMaterials( materials13 );
+          objLoader13.setPath( 'models/collada/monster/' );
+          objLoader13.load( 'nakl_nast_komposit_on_podem.obj', function ( nakl_osn_exp4 ) {
+          nakl_osn_exp4.position.x = 0;
+          nakl_osn_exp4.position.y = 19;
+          nakl_osn_exp4.position.z = 60;
+          nakl_osn_exp4.scale.x = nakl_osn_exp4.scale.y = nakl_osn_exp4.scale.z = 10;
+            //object.position.y = - 50;
+            //return ogr_1;
+           nakl_nast_komposit_on_podem = nakl_osn_exp4;
+           //scene.add( ogr_2_exp );
+          
+
+          });
+
+        });
+        
+                        var mtlLoader14 = new THREE.MTLLoader();
+        mtlLoader14.setPath( 'models/collada/monster/' );
+        mtlLoader14.load( 'nakl_nast_komposit_on_platform.mtl', function( materials14 ) {
+
+          materials14.preload();
+
+          var objLoader14 = new THREE.OBJLoader();
+          objLoader14.setMaterials( materials14 );
+          objLoader14.setPath( 'models/collada/monster/' );
+          objLoader14.load( 'nakl_nast_komposit_on_platform.obj', function ( nakl_osn_exp5 ) {
+          nakl_osn_exp5.position.x = 0;
+          nakl_osn_exp5.position.y = 19;
+          nakl_osn_exp5.position.z = 90;
+          nakl_osn_exp5.scale.x = nakl_osn_exp5.scale.y = nakl_osn_exp5.scale.z = 10;
+            //object.position.y = - 50;
+            //return ogr_1;
+           nakl_nast_komposit_on_platform = nakl_osn_exp5;
+           //scene.add( ogr_2_exp );
+          
+
+          });
+
+        });
+        /*
+                var mtlLoader10 = new THREE.MTLLoader();
+        mtlLoader10.setPath( 'models/collada/monster/' );
+        mtlLoader10.load( 'potrus.mtl', function( materials10 ) {
+
+          materials10.preload();
+
+          var objLoader10 = new THREE.OBJLoader();
+          objLoader10.setMaterials( materials10 );
+          objLoader10.setPath( 'models/collada/monster/' );
+          objLoader10.load( 'potrus.obj', function ( potrus_potrus ) {
+          potrus_potrus.position.x = 0;
+          potrus_potrus.position.y = 19;
+          potrus_potrus.position.z = 0;
+          potrus_potrus.scale.x = potrus_potrus.scale.y = potrus_potrus.scale.z = 10;
+            //object.position.y = - 50;
+            //return ogr_1;
+           potrus = potrus_potrus;
+           //scene.add( ogr_2_exp );
+          
+
+          });
+
+        });
+
+*/
+    	//scene.add.
+      //ogr_final = ogr_1_steel;
+       setTimeout(function(){addObjects();},1000);
+        //функций загрузки модели 
+          function addObjects(){
+          scene.add( model_1 );
+          scene.add( ogr_1 );
+          //scene.add(potrus);
+         scene.add(ogr_1_steel);
+         // scene.add(ogr_tek);
+
+          //scene.add(ogr_3_steel);
+          //scene.add(ogr_2_steel);
+         // scene.add( ogr_final );
+        }
+    	//начало гуи
+    	/*
+      var gui;
+    	gui = new dat.GUI();
+      
+            parameters = 
+            {
+              x: 0, y: 30, z: 0,
+              color: "#ff0000", // color (change "#" to "0x")
+              opacity: 1, 
+              visible: true,
+              material: "Phong",
+              reset: function() { resetCube() }
+            };
+
+            var folder1 = gui.addFolder('Position podemnik_baza');
+            var cubeX = folder1.add( parameters, 'x' ).min(-20).max(20).step(0.1).listen();
+            var cubeY = folder1.add( parameters, 'y' ).min(-20).max(20).step(0.1).listen();
+            var cubeZ = folder1.add( parameters, 'z' ).min(-20).max(20).step(0.1).listen();
+            folder1.open();
+            
+            cubeX .onChange(function(value) 
+            {   model_1.position.x = value;   });
+            cubeY.onChange(function(value) 
+            {   model_1.position.y = value;   });
+            cubeZ.onChange(function(value) 
+            {   model_1.position.z = value;   });
+
+            var folder2 = gui.addFolder('Position skladnoe_ograzdenie');
+            var cubeX = folder2.add( parameters, 'x' ).min(-20).max(20).step(0.1).listen();
+            //var cubeY = folder2.add( parameters, 'y' ).min(-60).max(20).step(0.1).listen();
+            var cubeZ = folder2.add( parameters, 'z' ).min(-20).max(20).step(0.1).listen();
+            folder2.open();
+            
+            cubeX .onChange(function(value) 
+            {   nast_2.position.x = value;   });
+           // cubeY.onChange(function(value) 
+            //{   nast_2.position.y = value;   });
+            cubeZ.onChange(function(value) 
+            {   nast_2.position.z = value;   });
+            /*
+            var cubeColor = gui.addColor( parameters, 'color' ).name('Color').listen();
+            cubeColor.onChange(function(value) // onFinishChange
+            {   model_1.material.color.setHex( value.replace("#", "0x") );   });
+            
+            var cubeOpacity = gui.add( parameters, 'opacity' ).min(0).max(1).step(0.01).name('Opacity').listen();
+            cubeOpacity.onChange(function(value)
+            {   model_1.material.opacity = value;   });
+            
+            var cubeMaterial = gui.add( parameters, 'material', [ "Basic", "Lambert", "Phong", "Wireframe" ] ).name('Material Type').listen();
+            cubeMaterial.onChange(function(value) 
+            {   updateCube();   });
+            
+            var cubeVisible = gui.add( parameters, 'visible' ).name('Visible?').listen();
+            cubeVisible.onChange(function(value) 
+            {   model_1.visible = value;   });
+            
+            gui.add( parameters, 'reset' ).name("Reset Cube Parameters");
+            */
+            //gui.open();
+
+            // конец гуи
+
+        var stats = initStats();
+
+        // create a scene, that will hold all our elements such as objects, cameras and lights.
+        scene = new THREE.Scene();
+
+        // create a camera, which defines where we're looking at.
+        var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+        // create a render and set the size
+        var renderer = new THREE.WebGLRenderer({ alpha: true } 	);
+
+       // renderer.setClearColorHex(0xEEEEEE, 1.0);
+        renderer.setSize(800, 600);
+        renderer.shadowMapEnabled = true;
+
+        /*	
+        // create the ground plane
+        var planeGeometry = new THREE.PlaneGeometry(60,20,1,1);
+        var planeMaterial =    new THREE.MeshLambertMaterial({color: 0xffffff});
+        var plane = new THREE.Mesh(planeGeometry,planeMaterial);
+        plane.receiveShadow  = true;
+
+        // rotate and position the plane
+        plane.rotation.x=-0.5*Math.PI;
+        plane.position.x=15
+        plane.position.y=0
+        plane.position.z=0
+        */
+        // add the plane to the scene
+        //scene.add(plane);
+
+        // Загружаем модель
+        /*
+        var dae
+        var loader = new THREE.ColladaLoader();
+            loader.options.convertUpAxis = true;
+            loader.load( 'models/monster.dae', function ( collada ) {
+                dae = collada.scene;
+                dae.scale.x = dae.scale.y = dae.scale.z = 5;
+                dae.position.x = -1;
+                dae.updateMatrix();
+
+                init();
+                animate();
+
+            } );
+        scene.add(dae);
+        */
+        // конец загрузки
+        //загружаем три настила
+        // первый настил
+        /*
+          var loader = new THREE.ColladaLoader();
+      loader.options.convertUpAxis = true;
+      loader.load( 'models/collada/monster/ogr_1.dae', function ( collada ) {
+      ogr_1 = collada.scene;
+      ogr_1.scale.x = ogr_1.scale.y = ogr_1.scale.z = 10;
+      ogr_1.position.x = -1;
+          ogr_1.position.y = 3;
+          ogr_1.position.z = 0;
+      ogr_1.updateMatrix();
+      } );*/
+
+
+
+
+
+
+
+
+
+      // конец загрузки
+
+
+
+
+        //scene.add( ogr_1 );
+
+
+
+
+
+
+
+
+
+      //второй настил
+      /*
+        var loader = new THREE.ColladaLoader();
+      loader.options.convertUpAxis = true;
+      loader.load( 'models/collada/monster/nast_skl.dae', function ( collada ) {
+      nast_2 = collada.scene;
+      nast_2.scale.x = nast_2.scale.y = nast_2.scale.z = 10;
+      nast_2.position.x = 3;
+          nast_2.position.y = 3;
+          nast_2.position.z = 0;
+      nast_2.updateMatrix();
+      } );
+      */
+      //третий настил
+/*
+        var loader = new THREE.ColladaLoader();
+      loader.options.convertUpAxis = true;
+      loader.load( 'models/collada/monster/nast_stac.dae', function ( collada ) {
+      nast_3 = collada.scene;
+      nast_3.scale.x = nast_3.scale.y = nast_3.scale.z = 10;
+      nast_3.position.x = 4;
+          nast_3.position.y = 9;
+          nast_3.position.z = -1;
+      nast_3.updateMatrix();
+      } );
+*/
+        //Загружаем три ограждения
+
+        	// без ограждения
+          /*
+        	var loader = new THREE.ColladaLoader();
+			loader.options.convertUpAxis = true;
+			loader.load( 'models/collada/monster/ogr_1.dae', function ( collada ) {
+			ogr_1 = collada.scene;
+			ogr_1.scale.x = ogr_1.scale.y = ogr_1.scale.z = 10;
+			ogr_1.position.x = -1;
+       		ogr_1.position.y = 3;
+       		ogr_1.position.z = 0;
+			ogr_1.updateMatrix();
+			} );
+      */
+      /*
+        	// складное
+        	var loader = new THREE.ColladaLoader();
+			loader.options.convertUpAxis = true;
+			loader.load( 'models/collada/monster/ogr_2.dae', function ( collada ) {
+			ogr_2 = collada.scene;
+			ogr_2.scale.x = ogr_2.scale.y = ogr_2.scale.z = 10;
+			ogr_2.position.x = 3;
+       		ogr_2.position.y = 15;
+       		ogr_2.position.z = 0;
+			ogr_2.updateMatrix();
+			} );
+        */
+        	// стационарная
+			     /*
+        	var load_stac = new THREE.ColladaLoader();
+			loader.options.convertUpAxis = true;
+			loader.load( 'models/collada/monster/ogr_3.dae', function ( collada ) {
+			ogr_3 = collada.scene;
+			ogr_3.scale.x = ogr_3.scale.y = ogr_3.scale.z = 10;
+			ogr_3.position.x = 4;
+       		ogr_3.position.y = 15;
+       		ogr_3.position.z = -1;
+			ogr_3.updateMatrix();
+			} );
+			*/
+        //Загружаем базовый подьемник в в самом начале
+        /*
+		var loader = new THREE.ColladaLoader();
+			loader.options.convertUpAxis = true;
+			loader.load( 'models/collada/monster/podemnik_baza.dae', function ( collada ) {
+			model_1 = collada.scene;
+			model_1.scale.x = model_1.scale.y = model_1.scale.z = 10;
+  			model_1.position.x = 2;
+        model_1.position.y = 19;
+        model_1.position.z = -3;
+			model_1.updateMatrix();
+			} );
+      */
+			// Загружаем все остальное
+      /*  
+			var loader3 = new THREE.ColladaLoader();
+			loader3.options.convertUpAxis = true;
+			loader3.load( 'models/collada/monster/model3.dae', function ( collada ) {
+			model_3 = collada.scene;
+			model_3.scale.x = model_3.scale.y = model_3.scale.z = 0.4;
+			model_3.position.x = -1;
+			} );
+      */
+			/*
+			var model_2;
+			var loader2 = new THREE.ColladaLoader();
+			loader2.options.convertUpAxis = true;
+			loader2.load( 'models/collada/monster/ogr_1.dae', function ( collada ) {
+			model_2 = collada.scene;
+			// При экспорте подьемника поменять скайл на о.4
+			model_2.scale.x = model_2.scale.y = model_2.scale.z = 10	;
+			model_2.position.x = 3;
+			model_2.position.z = 3;
+			model_2.position.y = -60;
+			model_2.updateMatrix();
+			} );*/
+			 //загрузить модель через 1000 милисекунд
+       
+        scene.add( ogr_1 );
+        // create a cube
+        var cubeGeometry = new THREE.CubeGeometry(100,0,100);
+        var cubeMaterial = new THREE.MeshLambertMaterial({color: 0x0000FF});
+        var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+        cube.castShadow = true;
+
+        // position the cube
+        cube.position.x=0;
+        cube.position.y=-35;
+        cube.position.z=0;
+
+        // add the cube to the scene
+       //	scene.add(cube);
+
+
+        var sphereGeometry = new THREE.SphereGeometry(4,20,20);
+        var sphereMaterial = new THREE.MeshLambertMaterial({color: 0x7777ff});
+        var sphere = new THREE.Mesh(sphereGeometry,sphereMaterial);
+
+        // position the sphere
+        sphere.position.x=20;
+        sphere.position.y=0;
+        sphere.position.z=2;
+        sphere.castShadow=true;
+
+        // Добавляем подьемник на сцену
+        	
+			//	init();
+			//	animate();
+		
+     //  scene.add(sphere);
+     	scene.add( new THREE.AmbientLight( 0xFFFFFF ) );
+        // position and point the camera to the center of the scene
+        camera.position.x = 100;
+        camera.position.y = 50;
+        camera.position.z = -50;
+        camera.lookAt(scene.position);
+        //THREEx.WindowResize(renderer, camera);
+        controls = new THREE.OrbitControls( camera, renderer.domElement );
+        controls.update();
+        // add subtle ambient lighting
+        var ambientLight = new THREE.AmbientLight(0x0c0c0c);
+        scene.add(ambientLight);
+       
+        // add spotlight for the shadows
+        var spotLight = new THREE.SpotLight( 0xD0D0D0 );
+        spotLight.position.set( -40, 60, -10 );
+        spotLight.castShadow = true;
+        scene.add( spotLight );
+        var spotLight2 = new THREE.SpotLight( 0xD0D0D0 );
+        spotLight2.position.set( 100, 50, -50 );
+        spotLight2.castShadow = true;
+        scene.add( spotLight2 );
+
+        // add the output of the renderer to the html element
+        $("#WebGL-output").append(renderer.domElement);
+
+        // call the render function
+        var step=0;
+        render();
+
+       function render() {
+       		/*
+       		var timerID = setInterval(function() {
+			model_2.position.y = 
+			clearInterval(timerID);
+            }, 1000);
+
+			model_2.position.y = model_2.position.y + 0.01;
+			*/
+
+			var timerID1, timerID2, timerID3;
+      var timer1, timer2, timer3;
+			// ogr_1
+			var timerID1 = setInterval(function() {
+			var timer1 = Date.now() * 0.0004;
+			ogr_1.position.y = Math.cos( timer1 ) * 30;
+      ogr_1_steel.position.y = Math.cos( timer1 ) * 30;
+      ogr_1_alum.position.y = Math.cos( timer1 ) * 30;
+      ogr_2_steel.position.y = Math.cos( timer1 ) * 30;
+      ogr_2_alum.position.y = Math.cos( timer1 ) * 30;
+      ogr_3_alum.position.y = Math.cos( timer1 ) * 30;
+      ogr_3_steel.position.y = Math.cos( timer1 ) * 30;
+			clearInterval(timerID1);
+            }, 1100);
+
+            // ogr_2
+			var timerID2 = setInterval(function() {
+			var timer2 = Date.now() * 0.0004;
+			ogr_2.position.y = Math.cos( timer2 ) * 30;
+			clearInterval(timerID2);
+            }, 1100);
+			
+
+			// ogr_3
+			var timerID3 = setInterval(function() {
+			var timer3 = Date.now() * 0.0004;
+			ogr_3.position.y = Math.cos( timer3 ) * 30;
+			clearInterval(timerID3);
+            }, 1100);
+			 // nast_stac
+      var timerID4 = setInterval(function() {
+      var timer4 = Date.now() * 0.0004;
+      //nast_3.position.y =0.2 + Math.cos( timer4 ) * 30;
+      clearInterval(timerID4);
+            }, 1100);
+      var timerID5 = setInterval(function() {
+      var timer5 = Date.now() * 0.0004;
+      //nast_2.position.y = Math.cos( timer5 ) * 30;
+      clearInterval(timerID5);
+            }, 1100);
+      
+			
+
+
+		   	controls.update();
+            step+=0.04;
+            sphere.position.x = 10;//+( 10*(Math.cos(step)));
+            sphere.position.y = 10;
+
+            // render using requestAnimationFrame
+            requestAnimationFrame(render);
+            renderer.render(scene, camera);
+        }
+
+        function initStats() {
+
+            var stats = new Stats();
+
+            stats.setMode(0); // 0: fps, 1: ms
+
+            // Align top-left
+            stats.domElement.style.position = 'absolute';
+            stats.domElement.style.left = '0px';
+            stats.domElement.style.top = '0px';
+
+            $("#Stats-output").append( stats.domElement );
+
+            return stats;
+        }
+
+    });
+
+
+
+</script>
+</body>
+</html>

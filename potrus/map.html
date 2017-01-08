@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+	<head>
+		<title>Potrus</title>
+		<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<script type="text/javascript" src="js/fullajax.min.js"></script>
+		<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+	</head>
+<body>
+	<div class="map" id="map" style="width: all;">
+		<div class="rectangle">
+			<p class="adress">
+				БЛАБЛАБЛАБЛА
+				<br>
+				БЛАБЛАБЛАБЛА
+			</p>
+		</div>
+		<div id="YMapsID"></div>
+	</div>
+	<script type="text/javascript">
+	    var myMap;
+	    ymaps.ready(function () {
+	        myMap = new ymaps.Map("YMapsID", {
+	            center: [55.15, 61.39],
+	            zoom: 10
+	        });
+	    });
+	</script>
+</body>
+</html>

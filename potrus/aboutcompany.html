@@ -1,52 +1,111 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>О компании</title>
-	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script type="text/javascript" src="js/fullajax.min.js"></script>
-	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
-</head>
+﻿<!DOCTYPE html>
+	<head>
+		<title>Potrus</title>
+		<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<script type="text/javascript" src="js/fullajax.min.js"></script>
+		<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+	</head>
 <body>
-	<!-- text -->
-	<div class="picturetext">
-		<h1>Компания "Потрус"</h1>
-		<div class="smalltext">
-			<img src="img/Image_11.png" alt="1">
-			<p><span>Успешно производим подъемники уже 7 лет.</span><br>
-				Наша компания POTRUS работает с 2009, и 7 лет растет и развивается.
-				На сегодняшний день мы занимаем первое место в сфере подъемного оборудования для маломобильного населения.
-			</p>
-		</div>
-		<div class="smalltext">
-			<img src="img/Image_12.png" alt="2">
-			<p><span>Колоссальный опыт в области производства подъемного оборудования.</span><br>
-				Мы выпустили порядка 6000 подъемников. Высота наших подъемников более 15 000 км. 
-				Тысячи довольных клиентов.
-			</p>
-		</div>
-		<div class="smalltext">
-			<img src="img/Image_13.png" alt="3">
-			<p><span style="font: bold;">Современная производственная линия </span><br>
-				На нашем производстве используется современные технологии и оборудование, что позволяет выпускать подъемники высокого качества. 
-			</p>
-		</div>
-		<div class="smalltext">
-			<img src="img/Image_14.png" alt="4">
-			<p><span>Отлаженные бизнес процессы и четкая организационная среда</span><br>
-				Для успеха на рынке нам потребовалось выстроить в компании четкие и надежные бизнес и производственные процессы с максимальной производительностью и высокой надежностью. Благодаря этому время от звонкадоотправки подъемника клиенту сократилось до двух дней.
-			</p>
-		</div>
-		<h2>Качественное обслуживание вас и ваших заказов</h2>
-		<div class="bigtext">
-			<img src="img/Image_15.png" alt="5">
-			<p id="paragraph_1">Изготовление и монтаж проводится квалифицированными специалистами в кратчайшие сроки<br><br>
-			Качество подъемников для инвалидов и пандусов проверяется в собственных сервис-зонах предприятия<br><br>
-			Подъемники для инвалидов и пандусы имеют уникальную запатентованную конструкцию</p>
-			<p id="paragraph_2">Подъемник для инвалидов PTU-1 в 2009 году отмечен золотой медалью ВВЦ г. Москвы<br><br>
-			Подъёмники для инвалидов установленные нашей фирмой, работают по всей России и СНГ<br><br>
-			Наша работа отмечена многочисленными положительными отзывами наших партнеров и клиентов</p>
+	<!-- header -->
+	<div class="header">
+		<div class="mid">
+			<img src="img/Image_01.png" alt="logo" class="logotype"  onClick='location.href="index.html"'>
+			<span>ПОТРУС</span>
+			<ul class="menu">
+				<li><a class="head_button" href="aboutcompany.html">О компании</a></li>
+				<li><a class="head_button" href="contacts.html">Контакты</a></li>
+				<li><a class="head_button" href="v-podemniki.html">Вертикальные подъёмники</a></li>
+				<li><a class="head_button" href="h-podemniki.html">Горизонтальные подъёмники</a></li>
+				<li><a class="head_button" href="articles.html">Статьи</a></li>
+			</ul>
+			<button id="calculate">Расчитать стоимость</button>
 		</div>
 	</div>
+<div class="wrapper" id="wrapper">
+	<div class="picturetext">
+			<h1>Компания "Потрус"</h1>
+			<div class="smalltext">
+				<img src="img/Image_11.png" alt="1" width="78px" height="78px">
+				<p><span>Успешно производим подъемники уже 7 лет.</span><br>
+					Наша компания POTRUS работает с 2009, и 7 лет растет и развивается.
+					На сегодняшний день мы занимаем первое место в сфере подъемного оборудования для маломобильного населения.
+				</p>
+			</div>
+			<div class="smalltext">
+				<img src="img/Image_12.png" alt="2" width="78px" height="78px">
+				<p><span>Колоссальный опыт в области производства подъемного оборудования.</span><br>
+					Мы выпустили порядка 6000 подъемников. Высота наших подъемников более 15 000 км. 
+					Тысячи довольных клиентов.
+				</p>
+			</div>
+			<div class="smalltext">
+				<img src="img/Image_13.png" alt="3" width="78px" height="78px">
+				<p><span style="font: bold;">Современная производственная линия </span><br>
+					На нашем производстве используется современные технологии и оборудование, что позволяет выпускать подъемники высокого качества. 
+				</p>
+			</div>
+			<div class="smalltext">
+				<img src="img/Image_14.png" alt="4" width="78px" height="78px">
+				<p><span>Отлаженные бизнес процессы и четкая организационная среда</span><br>
+					Для успеха на рынке нам потребовалось выстроить в компании четкие и надежные бизнес и производственные процессы с максимальной производительностью и высокой надежностью. Благодаря этому время от звонкадоотправки подъемника клиенту сократилось до двух дней.
+				</p>
+			</div>
+			<h2>Качественное обслуживание вас и ваших заказов</h2>
+			<div class="bigtext">
+				<img src="img/Image_15.png" alt="5">
+				<p id="paragraph_1">Изготовление и монтаж проводится квалифицированными специалистами в кратчайшие сроки<br><br>
+				Качество подъемников для инвалидов и пандусов проверяется в собственных сервис-зонах предприятия<br><br>
+				Подъемники для инвалидов и пандусы имеют уникальную запатентованную конструкцию</p>
+				<p id="paragraph_2">Подъемник для инвалидов PTU-1 в 2009 году отмечен золотой медалью ВВЦ г. Москвы<br><br>
+				Подъёмники для инвалидов установленные нашей фирмой, работают по всей России и СНГ<br><br>
+				Наша работа отмечена многочисленными положительными отзывами наших партнеров и клиентов</p>
+			</div>
+	</div>
+</div>
+	<footer>
+		<div class="poloska3">
+	<div class="poloska-kartinka3">
+				<div id="footertop">
+			<img src="img/image_05.png" alt="telephone" id="footerimg">
+			<span id="questions">Остались вопросы? Задайте их нам!</span>	
+		</div>
+		<div class="poloska-input">
+			<input type="text" class="footertb">
+			</div>
+			<div class="poloska-button">
+			<button type="submit" class="footerbut">Заказать звонок</button><br>
+			</div>
+			<div class="poloska-input1">
+			<a href="#" id="link1">Я разобрался и выбираю подъёмник самостоятельно</a>
+			</div>
+			<div class="poloska-input4">
+			<p class="links">
+				<b>Компания</b><br>
+				<a href="aboutcompany.html" class="footerlink">О компании</a><br>
+				<a href="contacts.html" class="footerlink">Контакты</a><br>
+				<a href="#" class="footerlink">Наши преимущества</a><br>
+				<a href="sertification.html" class="footerlink">Сертификаты</a><br>
+				<a href="#" class="footerlink">Статьи</a><br>
+			</p>
+			<p class="links">
+				<b>Наши продукты</b><br>
+				<a href="v-podemniki.html" class="footerlink">Вертикальные подъёмники</a><br>
+				<a href="h-podemniki.html" class="footerlink">Наклонные подъёмники</a><br>
+				<a href="#" class="footerlink">Индивидуальные заказы</a><br>
+			</p>
+			<p class="links" id="adress">
+				<b>Челябинск</b><br>
+				Телефон: 8(800)100-11-20<br>
+				E-mail: zakaz@potrus.ru<br>
+				Адрес: ул. Попова
+			</p>
+			</div>
+		</div>
+	</div>
+	</footer>
+	<script type="text/javascript" src="js/headhesive.min.js"></script>
+	<script type="text/javascript" src="js/js.js"></script>
 </body>
 </html>
